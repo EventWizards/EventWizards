@@ -18,6 +18,9 @@ import Quantity from "./Component/Users/Quantity";
 import Log from "./pages/Log";
 import SignUp from "./pages/SignUp";
 import Card from "./Component/Website/Card";
+import DashProfile from "./Component/Pages/DashProfile";
+import Payment from "./Component/Payment";
+import EidtPorfile from "./Component/EidtPorfile";
 
 
 
@@ -38,12 +41,21 @@ function App() {
             <Route path="login" element={<Log />} />
             <Route path="signup" element={<SignUp />} />
             <Route path="create event" element={<Events />} />
-            <Route path="payment" element={<CheckoutPage />} />
+            <Route path="payment/:id" element={<CheckoutPage />} />
             <Route path="category/:category" element={<CategoryContent />} />
             <Route path="blog/:id" element={<FlipCard/>}/>
-            <Route path="ticket" element={<Ticket />} />
+            <Route path="ticket/:id" element={<Ticket />} />
             <Route path="*" element={<NotFound />} />
             <Route path="card" element={<Card />} />
+            <Route path="eidtPorfile" element={<EidtPorfile />} />
+            
+            <Route path="dashboard" element={<DashProfile />}>
+            
+              <Route path="orderTicket" />
+              <Route path="orderEvent" />
+              <Route path="profilePrivate" />
+              <Route index />
+            </Route>
            {/* < Route path="discripiton" element={< Discripiton/>} /> */}
            {/* <Route path="quantity" element={<Quantity />} /> */}
           </Routes>

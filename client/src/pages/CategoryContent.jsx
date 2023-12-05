@@ -6,7 +6,7 @@ const CategoryContent = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const category = useParams();
+  const {category} = useParams();
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 9;
   const [blogImages, setBlogImages] = useState(null);
@@ -18,7 +18,7 @@ const CategoryContent = () => {
   useEffect(() => {
     axios
       // .get("https://fakestoreapi.com/products")
-      .get(`http://localhost:3001/comments/${category}`)
+      .get(`http://localhost:3001/event/getEventsbycategory?id=${category}`)
       .then((response) => {
         setProducts(response.data);
         console.log(response.data);
@@ -45,7 +45,7 @@ const CategoryContent = () => {
   };
 
   const searchFilteredProducts = products.filter((product) =>
-    product.product_name.toLowerCase().includes(searchQuery.toLowerCase())
+    product.event_name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -78,12 +78,12 @@ const CategoryContent = () => {
       <div className="relative flex flex-wrap gap-7 justify-center items-center mx-16">
         {currentProducts.map((product) => (
           <div
-            key={product.id}
+            key={product.event_id}
             className="group my-2 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md"
           >
             <Link
               className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
-              to={`/product/${product.id}`}
+              to={`/blog/${product.event_id}`}
             >
               <img
                 className="peer absolute border top-0 right-0 h-full w-full object-cover"
@@ -94,7 +94,7 @@ const CategoryContent = () => {
             <div className="mt-4 px-5 pb-5">
               <a href="#">
                 <h5 className="text-xl text-start h-8 mb-5 overflow-hidden tracking-tight text-slate-900">
-                  {product.product_name}
+                  {product.event_name}
                 </h5>
               </a>
               <div className="mt-2 mb-5 flex items-center justify-between">

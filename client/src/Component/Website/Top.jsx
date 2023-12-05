@@ -3,13 +3,14 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "../Filecss/Top.css";
 
+
 function Top() {
-  const [products, setProducts] = useState([]);
+  const [Events, setProducts] = useState([]);
 
   // fetch products
   useEffect(() => {
     axios
-      .get(" http://localhost:3001/comments")
+      .get("http://localhost:3001/event/getevents")
       .then((response) => {
         // Handle the response data here
         setProducts(response.data);
@@ -20,31 +21,33 @@ function Top() {
         console.error("Error:", error);
       });
   }, []);
-  console.log(products);
+  
+  console.log(Events);
   return (
     <div>
       <>
         <h2 className="mb-4 text-center pt-12 left-1/2 font-serif text-3xl font-bold text-[#FE7A00] md:mb-6 md:text-4xl">
-          Top Event
+          NEW Event
         </h2>
 
         <section className="hero-section">
           {/* <div className="relative flex flex-wrap gap-7 justify-center items-center mx-16"> */}
            
           <div className="card-grid">
-            {products.map((product) => (
+            {Events.map((event) => (
+              
              <a className="cards" href="#">
-              <Link to={`/blog/${product.id}`}>
+              <Link to={`/blog/${event.event_id}`}>
                 <div
-                key={product.id}
+                key={event.event_id}
                   className="card__background"
                   style={{
-                    backgroundImage:
-                    `url(${product.image_url})`
+                    backgroundImage: `url(${event.image_url})`,
                   }}
                 />
+                
                 <div className="card__content">
-                  <p className="card__category ">{product.product_name}</p>
+                  <p className="card__category ">{event.event_name}</p>
                   {/* <h3 className="card__heading">Example Card Heading</h3> */}
                 </div>
                 </Link>

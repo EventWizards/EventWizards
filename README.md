@@ -1,5 +1,23 @@
-# Event-Wizards
+# Event_local
 
-Your go-to place for everything “happening” in Jordan! From cultural and entertainment events to sports, business and more, this is your comprehensive guide to make your stay in Jordan (and your family’s) a little more active with a genuine local twist. If you have an event coming up and you would like to have it featured on the calendar of events, make sure to click on “ADD YOUR EVENT NOW” on the homepage so you can share it with Jordan - guests and residents alike!
+Event_local is a dynamic website designed to enhance community engagement by providing users with the capability to contribute and discover local events. Whether you're interested in organizing events for your local community or exploring activities in your vicinity, Event_local is the platform for you.
 
-- [Wireframe and Mockup](https://www.figma.com/file/Tw93d2XLDCR5ghhmwqjBjX/Event-Wizards?type=design&node-id=2%3A9&mode=design&t=GdzuMqbNnRbTYwL3-1)
+## Technologies Utilized:
+
+Our development stack is carefully selected to ensure a robust and efficient implementation of Event_local. The technologies employed include:
+
+- **JavaScript:** 
+  
+- **Node.js:** 
+
+- **Express.js:** 
+
+- **PostgreSQL:** 
+
+- **React.js:** 
+
+- **Tailwind CSS:** 
+
+## Organization Link:
+
+[github](https://github.com/laithalkhraisha/Event_local)

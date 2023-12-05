@@ -10,7 +10,7 @@ import PageContent from "../Component/Website/Destinationtop";
 
 function Home() {
   return (
-    <div>
+    <div className="bg-[#FEFAF1]">
       <Hero />
       <Top/>
       <Service/>

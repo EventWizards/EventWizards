@@ -12,7 +12,7 @@ export default function About() {
   }, []);
 
   return (
-  <div>
+  <div className='bg-[#FEFAF1]'>
 
     <Aboutus/>
     <TeamSection/>
