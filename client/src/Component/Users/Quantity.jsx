@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { useCookies } from "react-cookie";
 
 const Quantity = ({ onclose, isOpen }) => {
   const [quantity, setQuantity] = useState(1);
   const [total, setTotal] = useState(100);
+  const [pay,setPay]=useState();
   const navigate = useNavigate();
-
+  const {id} = useParams();
+  const [cookies] = useCookies(['token']);
+  const token = cookies.token;
 
   const decreaseQuantity = () => {
     if (quantity > 1) {
@@ -33,14 +37,18 @@ const Quantity = ({ onclose, isOpen }) => {
       const updatedTotal = total * quantity;
   
       // Make a POST request with the updated values
-      const response = await axios.post('http://localhost:3001/user', {
-        quantity: quantity,
+      axios.defaults.headers.common['Authorization'] = token
+      const response = await axios.post('http://localhost:3001/pay/addpay', {
+        amount: quantity,
         total: updatedTotal,
+        event_id: id
       });
   
-      if (response.status === 201) {
+      if (response.status === 200) {
         onclose();
-        navigate("/payment");
+        console.log(response.data);
+        setPay(response.data)
+        navigate(`/payment/${response.data.id}`);
       }
     } catch (error) {
       console.log("Error adding to cart:", error);
@@ -141,6 +149,7 @@ const Quantity = ({ onclose, isOpen }) => {
                   </button>
                 </div>
               </div>
+              <Link to={`/payment/`} >
               <button
                 data-modal-hide="popup-modal"
                 type="button"
@@ -148,7 +157,7 @@ const Quantity = ({ onclose, isOpen }) => {
                 onClick={addToPay}
               >
                 Buy now
-              </button>
+              </button></Link>
               
               <button
                 data-modal-hide="popup-modal"

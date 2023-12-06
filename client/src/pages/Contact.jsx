@@ -10,9 +10,9 @@ const ContactUS = () => {
  
 
   const [contactData, setContactData] = useState({
-    first_name: '',
+    name: '',
     email: '',
-    question: ''
+    message: ''
    
   });
 
@@ -21,7 +21,7 @@ const ContactUS = () => {
     e.preventDefault();
 
     // Send a POST request with the data to your API endpoint
-    axios.post(' http://localhost:3004/user', contactData)
+    axios.post('http://localhost:3001/contact/add', contactData)
       .then((response) => {
         // Handle the success response here
         if (response.status === 201) {
@@ -141,8 +141,8 @@ const ContactUS = () => {
                   type="text"
                   placeholder="Name"
                   name="name"
-                  value={contactData.first_name}
-                     onChange={(e) => setContactData({ ...contactData, first_name: e.target.value })}
+                  value={contactData.name}
+                     onChange={(e) => setContactData({ ...contactData, name: e.target.value })}
                      required
                 />
                 <input
@@ -158,10 +158,10 @@ const ContactUS = () => {
               <textarea
                 className="mb-10 w-full resize-y whitespace-pre-wrap border-b py-3 text-sm outline-none focus:border-b-2 focus:border-black"
                 rows="6"
-                placeholder="Question"
-                name="question"
-                value={contactData.question}
-                     onChange={(e) => setContactData({ ...contactData, question: e.target.value })}
+                placeholder="message"
+                name="message"
+                value={contactData.message}
+                     onChange={(e) => setContactData({ ...contactData, message: e.target.value })}
                      required
               ></textarea>
               <button

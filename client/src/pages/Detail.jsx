@@ -92,7 +92,7 @@ const FlipCard = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/posts/${id}`)
+      .get(`http://localhost:3001/event/event?id=${id}`)
       .then((response) => {
         setBlogPost(response.data);
         // setBlogImages(response.data.images);
@@ -118,7 +118,7 @@ const FlipCard = () => {
           <div className="card-front-custom  9">
             <figure>
               <div className="img-bg-custom"></div>
-              <img src={blogPost.image_url} alt={blogPost.product_name} />
+              <img src={blogPost.image_url} alt={blogPost.event_name} />
               <figcaption className="text-[#FE7A00]">
                 {blogPost.name_event}
               </figcaption>
@@ -129,31 +129,31 @@ const FlipCard = () => {
                 <label className="text-start text-[#FE7A00]">
                   Name Event :{" "}
                 </label>
-                {blogPost.name_event}
+                {blogPost.event_name}
               </li>
               <li className="list">
                 <label className="text-start text-[#FE7A00]">
                   Presenter :{" "}
                 </label>
-                {blogPost.presenter}
+                {blogPost.speaker}
               </li>
               <li className="list">
                 <label className="text-start text-[#FE7A00]">
                   Number_Seats :{" "}
                 </label>
-                {blogPost.number_seats}
+                {blogPost.tickets}
               </li>
               <li className="list">
                 <label className="text-start text-[#FE7A00]">
                   Description :{" "}
                 </label>
-                {blogPost.description}
+                {blogPost.direction}
               </li>
               <li className="list">
                 <label className="text-start text-[#FE7A00]">
                   Ticket_Price :{" "}
                 </label>
-                {blogPost.ticket_price}
+                {blogPost.price}
               </li>
             </ul>
           </div>

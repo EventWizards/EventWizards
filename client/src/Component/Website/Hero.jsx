@@ -9,9 +9,9 @@ const Hero = () => {
   };
   useEffect(() => {
     const slideTimer = setTimeout(() => {
-      const nextSlide = currentSlide === 4 ? 1 : currentSlide + 1;
+      const nextSlide = currentSlide === 3 ? 1 : currentSlide + 1;
       setCurrentSlide(nextSlide);
-    }, 5000);
+    }, 7000);
     return () => clearTimeout(slideTimer);
   }, [currentSlide]);
 
@@ -21,8 +21,8 @@ const Hero = () => {
         <div className="flex flex-col items-center w-full">
           <div className="relative w-full md:order-2">
             {/* items */}
-            {currentSlide === 1 && (
-              /* <!-- Item 1 --> */
+            {/* {currentSlide === 1 && (
+           
               <div className="w-full" data-carousel-item="">
                 <div className="flex flex-col lg:flex-row justify-center items-center h-[500px] w-full">
                   <img
@@ -43,8 +43,8 @@ const Hero = () => {
                   </div>
                 </div>
               </div>
-            )}
-            {currentSlide === 2 && (
+            )} */}
+            {currentSlide === 1 && (
               /* <!-- Item 2 --> */
               <div
                 className="w-full h-[500px] bg-cover bg-[50%] bg-[url('https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')]"
@@ -63,7 +63,7 @@ const Hero = () => {
                 </div>
               </div>
             )}
-            {currentSlide === 3 && (
+            {currentSlide === 2 && (
               /* <!-- Item 3 --> */
               <div
                 className="w-full h-[500px] bg-cover bg-[50%] bg-[url('https://images.pexels.com/photos/18898934/pexels-photo-18898934/free-photo-of-morning-exercise-of-a-group-of-campers-near-their-tents-in-the-mountains.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')]"
@@ -87,7 +87,7 @@ const Hero = () => {
                 </div>
               </div>
             )}
-            {currentSlide === 4 && (
+            {currentSlide === 3 && (
               /* <!-- Item 4 --> */
               <div
                 className="w-full h-[500px] bg-cover bg-[50%] bg-[url('https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')]"
@@ -111,7 +111,7 @@ const Hero = () => {
               } absolute top-1/2 left-0 transform -translate-y-1/2 mx-6 p-2 md:p-4`}
               data-carousel-prev=""
               onClick={() =>
-                changeSlide(currentSlide === 1 ? 4 : currentSlide - 1)
+                changeSlide(currentSlide === 1 ? 3 : currentSlide - 1)
               }
             >
               <span className="flex items-center">
@@ -141,7 +141,7 @@ const Hero = () => {
               } absolute top-1/2 right-0 transform -translate-y-1/2 mx-6 p-2 md:p-4`}
               data-carousel-next=""
               onClick={() =>
-                changeSlide(currentSlide === 4 ? 1 : currentSlide + 1)
+                changeSlide(currentSlide === 3 ? 1 : currentSlide + 1)
               }
             >
               <span className="flex items-center">
