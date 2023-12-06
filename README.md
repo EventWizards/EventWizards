@@ -18,6 +18,4 @@ Our development stack is carefully selected to ensure a robust and efficient imp
 
 - **Tailwind CSS:** 
 
-## Organization Link:
 
-[github](https://github.com/laithalkhraisha/Event_local)
