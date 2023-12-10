@@ -10,6 +10,7 @@ const category_route = require('./category_route');
 const commints_route = require('./commints_route');
 const favourite_route = require('./favourite_route');
 const payment_route = require('./paymentroute');
+const cityroute = require('./city');
 
 
 
@@ -22,6 +23,7 @@ router.use('/category',category_route);
 router.use('/commints',commints_route);
 router.use('/favourite',favourite_route);
 router.use('/pay',payment_route);
+router.use('/city',cityroute);
 
 
 

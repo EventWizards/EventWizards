@@ -43,7 +43,7 @@ const ExploreEvent = () => {
   // fetch products
   useEffect(() => {
     axios
-      .get(" http://localhost:3001/comments")
+      .get("http://localhost:3001/event/get")
       .then((response) => {
         // Handle the response data here
         setProducts(response.data);
@@ -97,10 +97,10 @@ const ExploreEvent = () => {
               alt="product image"
             /></Link>
             <h1 className="mt-4 px-4 text-center font-serif text-xl font-semibold text-rose-500">
-            {product.product_name}
+            {product.event_name}
             </h1>
             <p className="mt-1 px-4 text-center text-gray-600">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam, saepe.
+              {product.direction}
             </p>
           </div>
           {/* /Page1 */}

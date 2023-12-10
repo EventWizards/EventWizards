@@ -2,7 +2,21 @@ const {pool} = require('../db/db');
 
 class EventModel {
   async getAllEvents() {
-    const result = await pool.query('SELECT * FROM public."Events" WHERE "isDeleted"=false and event_status=true;');
+    const result = await pool.query('SELECT * FROM public."Events" WHERE "isDeleted" = false AND "event_status" = true ORDER BY public."Events".event_id desc LIMIT 4;');
+
+    return result.rows;
+  }
+  async getEvents() {
+    const result = await pool.query('SELECT * FROM public."Events" WHERE "isDeleted" = false AND "event_status" = true ORDER BY public."Events".event_id LIMIT 8;');
+
+    return result.rows;
+  }
+  async getAllEventsdb() {
+    const result = await pool.query('SELECT * FROM public."Events" WHERE "isDeleted"=false;');
+    return result.rows;
+  }
+  async getAllUserEvents(user_id) {
+    const result = await pool.query('SELECT * FROM public."Events" WHERE "isDeleted"=false and event_status=true and user_id=$1;',[user_id]);
     return result.rows;
   }
   async getEventsbycategory(category_id) {
@@ -28,6 +42,13 @@ class EventModel {
     const result = await pool.query(
       'UPDATE public."Events" SET event_name = COALESCE($2, event_name), speaker = COALESCE($3, speaker), location = COALESCE($4, location), date = COALESCE($5, date), tickets = COALESCE($6, tickets), price = COALESCE($7, price), location_url = COALESCE($8, location_url), image_url = COALESCE($9, image_url), image_id = COALESCE($10, image_id), direction = COALESCE($11, direction), user_id = COALESCE($12, user_id) WHERE event_id = $1 ;',
       [event_id, event_name, speaker, location, date, tickets, price, location_url, image_url, image_id, direction, user_id]
+    );
+    return result.rows[0];
+  }
+  async updateticket(event_id, number) {
+    const result = await pool.query(
+      'UPDATE public."Events" SET tickets =(tickets-$2) WHERE event_id = $1 ;',
+      [event_id,number]
     );
     return result.rows[0];
   }

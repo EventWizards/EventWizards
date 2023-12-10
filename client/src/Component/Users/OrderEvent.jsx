@@ -3,7 +3,10 @@ import React, { useEffect, useState } from "react";
 import EidtPorfile from "../EidtPorfile";
 import Quantity from "./Quantity";
 import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
 function OrderEvent() {
+  const [cookies] = useCookies(['token']);
+  const token = cookies.token;
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -14,11 +17,13 @@ function OrderEvent() {
   const [eventId , setEventId] = useState(0)
  
   useEffect(() => {
+    axios.defaults.headers.common['Authorization'] = token
     axios
-      .get("http://localhost:3001/event/getevents")
+      .get("http://localhost:3001/event/userevent")
       .then((response) => {
         // Handle the response data here
         setProducts(response.data);
+        console.log(products);
       })
       .catch((error) => {
         // Handle errors here

@@ -53,12 +53,20 @@ class User {
       throw error;
     }
   }
+  async loginadmin(email) {
+    try {
+      const result = await knex('Users').select('*').where({ email ,rule_id:1}).first();
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
   
   async updateUser(user_id,first_name,last_name, email, password ,iban,user_image,city,phone,zip) {
     try {
       const result = await knex('Users')
         .where({ user_id })
-        .update({first_name,last_name, email, password,iban,user_image,city,phone: knex.raw('COALESCE(?, phone)', [phone]),zip })
+        .update({first_name,last_name, email, password,iban,user_image,city,phone: knex.raw('COALESCE(?, phone)', [phone]),zip: knex.raw('COALESCE(?, zip)', [zip])})
         .returning('*');
 console.log(result.length,"asdasdasd");
       if (result.length === 0) {

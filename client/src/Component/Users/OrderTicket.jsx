@@ -280,7 +280,7 @@ function OrderTicket() {
                     scope="col"
                     class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-orange-500"
                   >
-                    Presenter
+                    speaker
                   </th>
 
                   <th
@@ -378,7 +378,7 @@ function OrderTicket() {
                         <div className="">
                         <h2 class="text-sm font-medium  ">{product.speaker}</h2>
                         <p class="text-xs font-normal text-gray-600 dark:text-gray-400">
-                        {product.email}
+                       
                         </p>
                       </div>
                           

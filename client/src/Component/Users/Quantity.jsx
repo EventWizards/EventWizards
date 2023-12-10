@@ -6,7 +6,7 @@ import { useCookies } from "react-cookie";
 
 const Quantity = ({ onclose, isOpen }) => {
   const [quantity, setQuantity] = useState(1);
-  const [total, setTotal] = useState(100);
+  const [total, setTotal] = useState();
   const [pay,setPay]=useState();
   const navigate = useNavigate();
   const {id} = useParams();
@@ -15,7 +15,7 @@ const Quantity = ({ onclose, isOpen }) => {
 
   const decreaseQuantity = () => {
     if (quantity > 1) {
-      setQuantity(quantity - 1);
+      setQuantity(quantity);
     
     }
     
@@ -38,7 +38,7 @@ const Quantity = ({ onclose, isOpen }) => {
   
       // Make a POST request with the updated values
       axios.defaults.headers.common['Authorization'] = token
-      const response = await axios.post('http://localhost:3001/pay/addpay', {
+      const response = await axios.post(`http://localhost:3001/pay/addpay?id=${id}`, {
         amount: quantity,
         total: updatedTotal,
         event_id: id
@@ -48,7 +48,7 @@ const Quantity = ({ onclose, isOpen }) => {
         onclose();
         console.log(response.data);
         setPay(response.data)
-        navigate(`/payment/${response.data.id}`);
+        navigate(`/payment/${response.data.id}/${id}`);
       }
     } catch (error) {
       console.log("Error adding to cart:", error);

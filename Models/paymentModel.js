@@ -2,10 +2,11 @@ const {pool} = require('../db/db');
 
 class paymentModel {
   async getAllpayment() {
-    const result = await pool.query('SELECT * FROM public."payment";');
+    const result = await pool.query('SELECT *, public."Events".event_name,public.payment.id, public."Events".date, (public."Events".price*public.payment.amount) as total,public.payment.amount,public."Events".image_url , public."Events".location_url , public."Events".speaker FROM public.payment JOIN public."Events" ON public.payment.event_id = public."Events".event_id  JOIN public."Users" ON public.payment.user_id = public."Users".user_id   ;');
     return result.rows;
   }
 
+  
 
   async getpaymentById(Id) {
     const result = await pool.query('SELECT *, public."Events".event_name,public.payment.id, public."Events".date, (public."Events".price*public.payment.amount) as total,public.payment.amount,public."Events".image_url , public."Events".location_url , public."Events".speaker FROM public.payment JOIN public."Events" ON public.payment.event_id = public."Events".event_id  JOIN public."Users" ON public.payment.user_id = public."Users".user_id  where public."payment".id =$1', [Id]);

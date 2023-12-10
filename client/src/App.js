@@ -41,7 +41,7 @@ function App() {
             <Route path="login" element={<Log />} />
             <Route path="signup" element={<SignUp />} />
             <Route path="create event" element={<Events />} />
-            <Route path="payment/:id" element={<CheckoutPage />} />
+            <Route path="payment/:id/:event" element={<CheckoutPage />} />
             <Route path="category/:category" element={<CategoryContent />} />
             <Route path="blog/:id" element={<FlipCard/>}/>
             <Route path="ticket/:id" element={<Ticket />} />

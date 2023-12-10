@@ -1,6 +1,8 @@
 const express = require('express');
 const paymentController = require('../Controllers/paymentcontroller');
  const paymentaccept=require('../Models/paymentModel')
+ const ticketcount=require('../Models/eventModel')
+
 const auth = require('../middleware/jwtaoth')
 const router = express.Router();
 const cors = require('cors');
@@ -13,7 +15,9 @@ router.post('/addpay',auth.authorize([2,1]) ,paymentController.createPayment);
 router.put('/pay/:id', paymentController.updatePaymentStatus);
 
 router.post("/payment", cors(), async (req, res) => {
-  let { amount, id,payid } = req.body;
+  let { amount, id,payid ,event_id,number} = req.body;
+  
+  
   try {
     const payment = await stripe.paymentIntents.create({
       amount,
@@ -25,6 +29,7 @@ router.post("/payment", cors(), async (req, res) => {
     });
     console.log("Payment sdasdas", payment);
     const accept= await paymentaccept.updatepayment(payid)
+    const ticket= await ticketcount.updateticket(event_id,number)
     res.json({
       message: "Payment successful",
       success: true,

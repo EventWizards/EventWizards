@@ -2,6 +2,7 @@ import { ElementsConsumer , CardElement, useStripe, useElements } from "@stripe/
 import React from "react";
 import CardSection from "./CardSection";
 import axios from "axios";
+import { number } from "joi";
 function CheckoutForm({stripe, elements,productData}){
 //     const stripe = useStripe();
 
@@ -24,6 +25,8 @@ function CheckoutForm({stripe, elements,productData}){
 
 const payid=productData.id;
 const amount=productData.total;
+const number=productData.amount
+const event_id = productData.event_id
     const card = elements.getElement(CardElement);
     const result = await stripe.createToken(card);
     if (result.error) {
@@ -33,10 +36,12 @@ const amount=productData.total;
     } 
 //handle amount
     const { id } = paymentMethod;
-    const response = await axios.post("http://localhost:3001/pay/payment", {
+    const response = await axios.post(`http://localhost:3001/pay/payment`, {
       amount: amount,
       id,
-      payid
+      payid,
+      event_id,
+      number
     });
 
     if (response.data.success) {

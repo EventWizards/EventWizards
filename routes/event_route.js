@@ -16,7 +16,9 @@ admin.initializeApp({
 const storage = multer.memoryStorage(); // Use memory storage for Firebase
 const upload = multer({ storage: storage });
 
-router.get('/getevents', eventController.getAllEvents);
+router.get('/getevents', eventController.getAllEventsdb);
+router.get('/getevent', eventController.getAllEvents);
+router.get('/get', eventController.Events);
 router.get('/getEventsbycategory', eventController.getEventsbycategory);
 router.get('/event', eventController.getEventById);
 
@@ -126,6 +128,6 @@ router.put('/update', auth.authorize([2, 1]), upload.fields([
 
 router.put('/delete', eventController.deleteEvent);
 router.put('/accept', eventController.acceptEvent);
-router.put('/up', eventController.updateEvent);
+router.get('/userevent', auth.authorize([2,1]),eventController.getAllUserEvents);
 
 module.exports = router;

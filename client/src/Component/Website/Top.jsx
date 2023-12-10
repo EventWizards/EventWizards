@@ -10,7 +10,7 @@ function Top() {
   // fetch products
   useEffect(() => {
     axios
-      .get("http://localhost:3001/event/getevents")
+      .get("http://localhost:3001/event/getevent")
       .then((response) => {
         // Handle the response data here
         setProducts(response.data);

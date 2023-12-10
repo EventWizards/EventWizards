@@ -12,6 +12,34 @@ class EventController {
       res.status(500).send('Internal Server Error');
     }
   }
+  async Events(req, res) {
+    try {
+      const events = await EventModel.getEvents();
+      res.json(events);
+    } catch (error) {
+      console.error('Error fetching events:', error);
+      res.status(500).send('Internal Server Error');
+    }
+  }
+  async getAllUserEvents(req, res) {
+    try {
+      const user_id=req.user.user_Id
+      const events = await EventModel.getAllUserEvents(user_id);
+      res.json(events);
+    } catch (error) {
+      console.error('Error fetching events:', error);
+      res.status(500).send('Internal Server Error');
+    }
+  }
+  async getAllEventsdb(req, res) {
+    try {
+      const events = await EventModel.getAllEventsdb();
+      res.json(events);
+    } catch (error) {
+      console.error('Error fetching events:', error);
+      res.status(500).send('Internal Server Error');
+    }
+  }
   async getEventsbycategory(req, res) {
     const category_id = req.query.id;
     console.log(category_id);
@@ -25,6 +53,7 @@ class EventController {
   }
   async acceptEvent(req, res) {
     const event_id = req.query.id;
+    console.log(event_id);
     try {
       const events = await EventModel.acceptEvent(event_id);
       res.json(events);

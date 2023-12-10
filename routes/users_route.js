@@ -21,6 +21,7 @@ router.put('/delete', userController.deleteUser);
 router.get('/getuserid', auth.authorize([2,1]),userController.getUserbyid);
 router.get('/getall', userController.getAllUsers);
 router.post('/login', userController.loginUser);
+router.post('/loginadmin', userController.loginadmin);
 router.put('/update', auth.authorize([2,1]),upload.fields([
     { name: 'user_image' }
   ]), async (req, res) => {

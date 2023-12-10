@@ -16,13 +16,13 @@ const payment_route = require('./paymentroute');
 
 
 
-router.use('/users',jwt.authorize(1),userRoutes);
-router.use('/event',jwt.authorize(1),event_route);
-router.use('/contact',jwt.authorize(1),contact_route);
+router.use('/users',userRoutes);
+router.use('/event',event_route);
+router.use('/contact',contact_route);
 router.use('/category',jwt.authorize(1),category_route);
 router.use('/commints',jwt.authorize(1),commints_route);
 router.use('/favourite',jwt.authorize(1),favourite_route);
-router.use('/pay',jwt.authorize(1),payment_route);
+router.use('/pay',payment_route);
 
 
 

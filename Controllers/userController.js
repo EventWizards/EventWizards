@@ -153,6 +153,39 @@ class UserController {
       res.status(500).send('Internal Server Error');
     }
   }
+  async loginadmin(req, res) {
+    try {
+      const { email, password } = req.body;
+  
+      const user = await User.loginadmin(email);
+ 
+      if (!user) {
+        return res.status(401).json({ error: 'Invalid credentialsssssss' });
+      }
+  
+      const storedHashedPassword = user.password;
+  
+      const passwordMatch = await bcrypt.compare(password, storedHashedPassword);
+  
+      if (!passwordMatch) {
+        return res.status(401).json({ error: 'Invalid credentials' });
+      }
+  
+      
+      const token = jwt.sign(
+        { user_Id:user.user_id,first_name: user.first_name,last_name:user.last_name, email: user.email, rule_id: user.rule_id },
+        process.env.secretKey,
+        {
+          expiresIn: '500h',
+        }
+      );
+  
+      res.json({ token, user_id: user.user_id, ruleid: user.rule_id });
+    } catch (error) {
+      console.error('Error logging in:', error);
+      res.status(500).send('Internal Server Error');
+    }
+  }
   
   async getAllUsers(req, res) {
     try {

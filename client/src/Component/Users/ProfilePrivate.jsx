@@ -472,7 +472,7 @@ function ProfilePrivate() {
     formData.append("iban", user.iban || "");
     formData.append("phone", user.phone || +962);
     formData.append("city", user.city || "");
-    formData.append("zip", user.zip || "");
+    formData.append("zip", user.zip || 0);
     formData.append("user_image", user.user_image);
 
     try {
