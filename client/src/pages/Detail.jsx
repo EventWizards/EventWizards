@@ -113,13 +113,13 @@ const FlipCard = () => {
   return (
     < >
       {/* Flip Card Container 1 */}
-      <div className="md:flex  ">
-      <div className="flip-card-container-custom " style={{ "--hue": 40 }}>
+      <div className="md:flex lg:flex-row lg:items-center lg:justify-center justify-center lg:mr-40 md:mr-40 sm:mr-0 mr-0 flex-col place-items-center sm:flex flex sm:flex-col items-center  ">
+      <div className="flip-card-container-custom lg:scale-100 md:scale-90 sm:scale-75 flex flex-row" style={{ "--hue": 40 }}>
         <div className="flip-card-custom">
-          <div className="card-front-custom  9">
+          <div className="card-front-custom  lg:scale-100 md:scale-90 sm:scale-75  ">
             <figure>
-              <div className="img-bg-custom"></div>
-              <img src={blogPost.image_url} alt={blogPost.event_name} />
+              <div className="img-bg-custom "></div>
+              <img  src={blogPost.image_url} alt={blogPost.event_name} />
              <figcaption className=" text-[#FE7A00]">
              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2" />
@@ -165,7 +165,7 @@ const FlipCard = () => {
             </ul>
             
           </div>
-          <div className="card-back-custom">
+          <div className="card-back-custom ">
             <figure>
               <div className="img-bg-custom"></div>
               <img src={blogPost.image_url} alt="Brohm Lake" />
@@ -193,13 +193,13 @@ const FlipCard = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-between  lg:mr-40 md:mr-32 ml-10 ">
-        <div className="text-center pt-12  ">
+      <div className="flex justify-between w-fit place-self-center	 justify-self-center items-center lg:scale-100 md:scale-90 sm:scale-75 scale-75 ">
+        <div className="text-center place-self-center justify-self-center justify-center	">
         <ul className="uldetail2 text-start">
-              <li className="list  flex ">
+              <li className="list place-self-center	 flex ">
                 {" "}
                 <div className="">
-                <label className="text-start text-[#FE7A00] mr-2 w-[50px]">
+                <label className="text-start text-[#FE7A00] mr-2 w-fit">
                   Name Event :{" "}
                 </label>
                 </div>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Foot() {
   return (
-    <section class=" sec bg-[#c65f20] mt-16 ">
+    <section class=" sec bg-[#c65f20]  ">
       <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8 ">
         <nav class="flex flex-wrap justify-center -mx-5 -my-2">
           <Link to="/">

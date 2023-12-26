@@ -6,15 +6,16 @@ import '../Filecss/Distinationtop.css'
 
 
 const Card = ({ title, copy, button, image }) => (
+  
   <div className="card">
     <div
-      className="card__background"
+      className="card__background "
       style={{ backgroundImage: `url(${image})` }}
     />
     <div className="content">
       <h2 className="title">{title}</h2>
       <p className="copy">{copy}</p>
-      <button className="btn">{button}</button>
+      <button className="btn">View </button>
     </div>
   </div>
 );

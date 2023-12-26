@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import logo from "../Component/Website/image/moh.JPG";
@@ -10,6 +10,7 @@ import Cookies from "js-cookie";
 function Log() {
   const {login}=useAuth()
   const [cookies, setCookie] = useCookies(['token']);
+  const [redirectUrl, setRedirectUrl] = useState(null);
      useEffect(() => {
          window.scrollTo(0, 0);
        }, []);
@@ -70,8 +71,42 @@ function Log() {
         });
       });
   };
+
+  const handlegoogle = async () => {
+   redirect='http://localhost:3001/g/auth/google'
+    axios
+      .get("http://localhost:3001/g/auth/google", formData)
+      .then((response) => {
+        if (response.status === 200) {
+          Swal.fire({
+            icon: "success",
+            title: "Event Created Successfully!",
+            text: "Your event has been created successfully.",
+            timer: 3000,
+            iconColor: "#FE7A00",
+            confirmButtonColor:"#FE7A00"
+          });
+          const { token, redirectUrl } = response.data;
+
+          setRedirectUrl(redirectUrl);
+      // setCookie('token', token, { path: '/' })
+      Cookies.set("role",2)
+      login(token)
+            navigate(redirectUrl);
+        
+        }
+      })
+      .catch((error) => {
+        console.error("An error occurred while sending the message:", error);
+        Swal.fire({
+          icon: "error",
+          title: "Error!",
+          text: "An error occurred while creating the event.",
+        });
+      });
+  };
   return (
-    <div className="mx-auto items-center justify-center flex h-screen max-w-lg flex-col md:max-w-none md:flex-row md:pr-10 bg-[#FEFAF1]">
+    <div className="mx-auto items-center justify-center flex min-screen max-w-lg flex-col md:max-w-none md:flex-row md:pr-10 ">
       <div className="max-w-md text-start rounded-3xl bg-cover bg-[url('https://images.pexels.com/photos/3856026/pexels-photo-3856026.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] px-4 py-10 text-white sm:px-10 md:m-6 md:mr-8">
         <p className="mb-20 font-bold tracking-wider pt-20"></p>
         <p className="mb-4 text-3xl font-bold md:text-4xl md:leading-snug">
@@ -162,6 +197,13 @@ function Log() {
           onClick={handleSignIn}
         >
           Login
+        </button></div>
+        <div className="pt-4 text-center ">
+        <button
+          className="hover:shadow-blue-600/40 rounded-xl bg-gradient-to-r bg-[#FE7A00] hover:bg-orange-700 px-8 py-3 font-bold text-white transition-all hover:opacity-90 hover:shadow-lg"
+          onClick={handlegoogle}
+        >
+          Logingoogle
         </button></div>
         <p className="text-center text-gray-600 pt-5">
         Don't have an account?

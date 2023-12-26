@@ -52,18 +52,19 @@ class User {
         const result2 = await knex('Users')
         .where({ user_id })
         .update({ active: false })
-        .returning('*');
+        .returning('active');
 
       if (result2.length === 0) {
         return null;
       }
+      console.log(result[0]);
       return result[0];
       }
       else{
         const result2 = await knex('Users')
         .where({ user_id })
         .update({ active: true })
-        .returning('*');
+        .returning('active');
 
       if (result2.length === 0) {
         return null;

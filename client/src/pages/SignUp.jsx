@@ -90,7 +90,7 @@ function SignUp() {
   };
 
   return (
-    <div className="mx-auto items-center justify-center flex h-screen max-w-lg flex-col md:max-w-none md:flex-row md:pr-10 bg-[#FEFAF1]">
+    <div className="mx-auto items-center justify-center flex min-screen max-w-lg flex-col md:max-w-none md:flex-row md:pr-10 ">
       <div className="max-w-md text-start rounded-3xl bg-cover bg-[url('https://images.pexels.com/photos/3856027/pexels-photo-3856027.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] px-4 py-10 text-white sm:px-10 md:m-6 md:mr-8">
         <p className="mb-20 font-bold tracking-wider pt-20"></p>
         <p className="mb-4 text-3xl font-bold md:text-4xl md:leading-snug">

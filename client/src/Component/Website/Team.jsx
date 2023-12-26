@@ -1,7 +1,9 @@
 import React from 'react';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { useEffect } from 'react';
 
 const TeamSection = () => {
     const team = [
@@ -26,8 +28,12 @@ const TeamSection = () => {
        
     ];
 
+    useEffect(() => {
+        AOS.init();
+      }, [])
+
     return (
-        <section className="py-14">
+        <section data-aos="flip-down" className="py-14">
             <div className="max-w-screen-xl mx-auto px-4 md:px-8">
             <div className="max-w-xl text-center mx-auto">
             <h3 className="mb-4 text-center pt-12 left-1/2 font-serif text-3xl font-bold text-[#FE7A00] md:mb-6 md:text-4xl">Our Team </h3>

@@ -46,7 +46,7 @@ function Events() {
 
       const updatedProduct = response.data;
       
-
+console.log("sdasdas",response.data);
       setProducts((prevProducts) =>
         prevProducts.map((product) =>
           product.event_id === id
@@ -247,7 +247,7 @@ function Events() {
                                   : "bg-red-600"
                               }`}
                             ></span>
-                            {product.event_status ? " Unactive" : " Active"}
+                            {product.event_status ? " Unactive" : "Active"}
                           </button>
                         </div>
                       </div>
@@ -262,6 +262,17 @@ function Events() {
                         }}
                       >
                         Details
+                      </button>
+                    </td>
+                    <td class="px-6  text-center">
+                      <button
+                        className="border border-[#FE7A00] rounded-full font-semibold text-[#FE7A00] h-10  my-3 px-4"
+                        onClick={() => {
+                          console.log(product.event_id);
+                          handleModalDetailOpen(product.event_id);
+                        }}
+                      >
+                        Payment
                       </button>
                     </td>
                   </tr>

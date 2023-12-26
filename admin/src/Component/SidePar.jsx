@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 import axios from "axios";
 import { useAuth } from "../AuthContext";
@@ -8,6 +9,8 @@ function SidePar() {
   const [user, setUser] = useState({
     // ... other properties
   });
+  const [cookies] = useCookies(['token']);
+  const token = cookies.token;
   const {logout} = useAuth()
   useEffect(() => {
     // console.log("Fetching data...");
@@ -15,10 +18,12 @@ function SidePar() {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3004/Login`, {
+        axios.defaults.headers.common['Authorization'] = token
+        const response = await axios.get(`http://localhost:3001/dachbord/users/getuserid`, {
           // headers: headers,
         });
-        console.log("Response:", response.data);
+        console.log("userrrrrrr:", response.data);
+
         setUser(response.data[0]);
       } catch (error) {
         console.error("Error:", error);
@@ -219,7 +224,7 @@ function SidePar() {
           <div>
             <img
               className="h-12 w-12 rounded-full"
-              src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+              src={user.user_image}
             />
           </div>
           <div className="ml-3">

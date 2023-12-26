@@ -125,11 +125,7 @@ class UserController {
 
       const user = await User.activeUser(user_id);
 
-      if (user===null) {
-        return res.status(404).json({ error: 'User not found' });
-      }
-
-      res.json({ message: 'User update Active stutes' ,user});
+      res.json(user);
     } catch (error) {
       console.error('Error  user:', error);
       res.status(500).send('Internal Server Error');

@@ -24,6 +24,7 @@
     position: relative;
     transform-style: preserve-3d;
     transition: .6s .1s;
+    
     /* transition: transform 0.5s ease; */
   }
   
@@ -55,9 +56,54 @@
     justify-content: center;
     align-items: center;
   }
+  @media only screen and (max-width: 600px) {
+    .flip-card-container-custom {
+      width: 250px;
+    height: 250px;
+    }
+    .flip-card-custom{
+      width: 100%;
+    height: 100%;
+    }
+    .card-front-custom {
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+  
+    background: var(--dark);
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  
+    backface-visibility: hidden;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .uldetail2{
+    padding-top: 0;
+    
+  }
+}
+  @media only screen and (max-width: 400px) {
+    .card-front-custom {
+      transform: scale(0.8);
+  }
+  .card-back-custom {
+    transform: scale(0.5);
+
+  }
+  .uldetail2{
+    padding-top: 0;
+    
+  }
+  }
   
   /* .card-front */
   .card-front-custom {
+
     transform: rotateY(0deg);
     z-index: 2;
   }
@@ -151,7 +197,7 @@
   }
   
   /* ul */
-.uldetail{
+/* .uldetail{
     padding-top: 50%;
     margin: 0 auto;
     width: 70%;
@@ -164,10 +210,10 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  }
+  } */
   
   .uldetail2{
-    padding-top: 50%;
+    padding-top: 25%;
     margin: 0 auto;
     width: 100%;
     height: 100%;
@@ -379,4 +425,5 @@
     font-size: 16px;
     font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
   }
+  
   

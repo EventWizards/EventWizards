@@ -23,7 +23,7 @@ const Category = () => {
       <h2 className="mb-4 text-center pt-12 left-1/2 font-serif text-3xl font-bold text-[#FE7A00] md:mb-6 md:text-4xl">
         Category
       </h2>
-      <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-[6rem]">
+      <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {categories.map((category) => (
           <Link to={`category/${category.id}`} key={category.id}>
             <div className="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl">

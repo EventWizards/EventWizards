@@ -25,7 +25,7 @@ function Top() {
     <div>
       <>
         <h2 className="mb-4 text-center pt-12 left-1/2 font-serif text-3xl font-bold text-[#FE7A00] md:mb-6 md:text-4xl">
-          new Event
+        New Event
         </h2>
         {/* data-aos="fade-up"  */}
         <section className="hero-section">

@@ -22,11 +22,11 @@ const Users = () => {
   const handleToggleAcceptance = async (id) => {
     try {
       const response = await axios.put(`http://localhost:3001/users/active?id=${id}`, {
-        // isUnBlock: !products.find((product) => product.id === id).isUnBlock,
+        // active: !products.find((product) => product.user_id === id).active,
       });
 
       const updatedProduct = response.data;
-
+console.log(updatedProduct);
       setProducts((prevProducts) =>
         prevProducts.map((product) =>
           product.user_id === id

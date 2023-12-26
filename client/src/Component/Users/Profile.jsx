@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import SecondPorfile from "../Website/SecondPorfile";
 import axios from "axios";
-import { useCookies } from 'react-cookie';
+import { useCookies } from "react-cookie";
 import { useAuth } from "../../AuthContext";
 import Cookies from "js-cookie";
 
@@ -11,11 +11,11 @@ function Profile() {
   const [cookies, setCookie, removeCookie] = useCookies(["token"]);
   const token = cookies.token;
   const [isSideOpen, setIsSideOpen] = useState(false);
-  
-  const {isUserRole} = useAuth()
-  const {logout} = useAuth()
-  
-  const role = isUserRole() || Cookies.get('role')
+
+  const { isUserRole } = useAuth();
+  const { logout } = useAuth();
+
+  const role = isUserRole() || Cookies.get("role");
   console.log(role);
   useEffect(() => {
     // console.log("Fetching data...");
@@ -23,10 +23,13 @@ function Profile() {
 
     const fetchData = async () => {
       try {
-        axios.defaults.headers.common['Authorization'] = token
-        const response = await axios.get(`http://localhost:3001/users/getuserid`, {
-          // headers: headers,
-        });
+        axios.defaults.headers.common["Authorization"] = token;
+        const response = await axios.get(
+          `http://localhost:3001/users/getuserid`,
+          {
+            // headers: headers,
+          }
+        );
         console.log("Response:", response.data);
         setUser(response.data[0]);
       } catch (error) {
@@ -49,12 +52,75 @@ function Profile() {
     removeCookie("token");
   };
   return (
-    <>
+    <div className="sticky">
       {/* ml-[-100%] */}
-      <div className="   z-1 top-0 sticky  pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-[#c65f20] transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%] ">
+      <div className=" md:hidden relative ">
+      <button
+            aria-label="Close sidebar"
+            id="closeSideBar"
+            className={`${
+              isSideOpen ? "block" : "hidden"
+            } lg:hidden h-10 w-10 bg-[#FE7A00] absolute left-40 mt-16  flex items-center shadow rounded-tr rounded-br justify-center cursor-pointer text-white`}
+            onClick={()=>setIsSideOpen(!isSideOpen)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="icon icon-tabler icon-tabler-x"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="#fff"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z"></path>
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+      <button
+            aria-label="toggle sidebar"
+            id="openSideBar"
+            className={`${
+              isSideOpen ? "hidden" : "flex"
+            } lg:hidden h-10 w-10 bg-gray-600 absolute  mt-16 mr-1 items-center shadow rounded-tr rounded-br justify-center cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 rounded focus:ring-gray-800`}
+            onClick={()=>setIsSideOpen(!isSideOpen)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="icon icon-tabler icon-tabler-adjustments "
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="#FFFFFF"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z"></path>
+              <circle cx="6" cy="10" r="2"></circle>
+              <line x1="6" y1="4" x2="6" y2="8"></line>
+              <line x1="6" y1="12" x2="6" y2="20"></line>
+              <circle cx="12" cy="16" r="2"></circle>
+              <line x1="12" y1="4" x2="12" y2="14"></line>
+              <line x1="12" y1="18" x2="12" y2="20"></line>
+              <circle cx="18" cy="7" r="2"></circle>
+              <line x1="18" y1="4" x2="18" y2="5"></line>
+              <line x1="18" y1="9" x2="18" y2="20"></line>
+            </svg>
+          </button>
         
+
+      </div>
+      <div
+        className={`z-1 top-0 sticky pb-3 px-6 w-full md:translate-x-0 flex flex-col justify-between h-screen border-r bg-[#c65f20] transition-transform duration-300 lg:ml-0 ${
+          !isSideOpen ? "-translate-x-full" : "translate-x-0"
+        }`}
+      >
         <div>
-          
           <div className="mt-8 text-center">
             <img
               src={user.user_image}
@@ -152,14 +218,6 @@ function Profile() {
           </ul>
         </div>
 
-        <div className="md:hidden">
-          <button className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group" onClick={openSidebar}>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-            <span>Show Sidebar</span>
-          </button>
-        </div>
         <div className="px-6 -mx-6 pt-4 flex justify-between items-center border-t">
           <button className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
             <Link to="/login">
@@ -179,15 +237,15 @@ function Profile() {
               </svg>
             </Link>
             <Link to="/">
-              <button className="group-hover:text-[#FE7A00]" onClick={logout}>Logout</button>
+              <button className="group-hover:text-[#FE7A00]" onClick={logout}>
+                Logout
+              </button>
             </Link>
           </button>
         </div>
       </div>
-      {role != 2 &&
-   (<Navigate to="/login" replace/>)
-  }
-    </>
+      {role != 2 && <Navigate to="/login" replace />}
+    </div>
   );
 }
 
