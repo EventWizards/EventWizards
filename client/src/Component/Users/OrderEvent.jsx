@@ -46,9 +46,10 @@ function OrderEvent() {
     }
   };
 
-  const handleModalEditOpen = (event_id) => {
-    setEventId(event_id)
+  const handleModalEditOpen = (eventId) => {
+    setEventId(eventId)
     setRequestModalOpen(true);
+    
   };
 
   const handleModalClose = () => {
@@ -59,8 +60,8 @@ function OrderEvent() {
     // <section class="container px-4 mx-auto">
 
     <>
-    <div className="relative flex flex-col mt-5 mx-auto mb-5">
-      <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+    <div className="relative flex flex-col mt-5 mx-auto mb-5 overflow-x-auto sm:rounded-lg ">
+      <div class=" rounded-lg border border-gray-200 shadow-md m-5 rtl:text-right text-gray-500 dark:text-gray-400">
         <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
           <thead class="bg-gray-50">
             
@@ -140,7 +141,7 @@ function OrderEvent() {
                              
                               <button
                                 class="text-gray-500 transition-colors  duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none"
-                                onClick={handleModalEditOpen}
+                                onClick={() =>handleModalEditOpen(product.event_id)}
                               >
                               
                                 <svg
@@ -191,7 +192,7 @@ function OrderEvent() {
           </tbody>
         </table>
       </div>
-      <EidtPorfile isOpen={isRequestModalOpen} onclose={handleModalClose} />
+      <EidtPorfile isOpen={isRequestModalOpen} onclose={handleModalClose} eventId={eventId} />
     </div>
     {/* {isRequestModalOpen &&
     <ContactEmail

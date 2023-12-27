@@ -2,15 +2,24 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Card from "./Card";
+import Quantity from "../Users/Quantity";
 
 const ExploreEvent = () => {
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   // const [quantity, setQuantity] = useState(2);
   const [products, setProducts] = useState([]);
+  const [isRequestModalOpen, setRequestModalOpen] = useState(false);
+
+  const handleModalOpen = () => {
+    setRequestModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setRequestModalOpen(false);
+  };
 
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
@@ -78,49 +87,59 @@ const ExploreEvent = () => {
 
       <div className="relative flex flex-wrap gap-2 justify-evenly items-center mx-12 ">
         {currentItems.map((product, id) => (
-          
-          <div 
-          key={id}
-          className="group relative m-5 h-96 w-72 overflow-hidden rounded-lg shadow-md bg-slate-50 ">
-          {/* Page1 */}
-         
-          <div className="absolute left-0 top-0 h-full w-full transition-all duration-300 ease-in-out group-hover:-top-96">
-            
-          <Link
-              to={`/product/${product.product_id}`}
-              className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
-            >
-            <img
-              className="h-96 w-72 object-cover"
-              src={product.image_url}
-              alt="product image"
-            /></Link>
-            <h1 className="mt-4 px-4 text-center font-serif text-xl font-semibold text-rose-500">
-            {product.event_name}
-            </h1>
-            <p className="mt-1 px-4 text-center text-gray-600">
-            {product.direction}
-            </p>
-          </div>
-          {/* /Page1 */}
-          {/* Page2 */}
-          <div className="absolute left-0 -bottom-96 flex h-full w-full flex-col justify-center transition-all duration-300 ease-in-out group-hover:bottom-0">
-            <h1 className="mb-2 px-8 text-center font-serif text-xl font-semibold text-rose-500">
-            {product.product_name}
-            </h1>
-            <p className="px-8 text-center">
-            {product.direction}
-            </p>
-            
-            <Link to="/payment" class="absolute bottom-0 right-0 flex h-12 w-12 items-center justify-center bg-[#FE7A00] text-white transition-all hover:w-16">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2" />
-          </svg>
-          </Link>
-          </div>
-          {/* /Page2 */}
-        </div>
+          <div
+            key={product.event_id}
+            className="group relative m-5 h-96 w-72 overflow-hidden rounded-lg shadow-md bg-slate-50 "
+          >
+            {/* Page1 */}
 
+            <div className="absolute left-0 top-0 h-full w-full transition-all duration-300 ease-in-out group-hover:-top-96">
+              <Link
+                to={`/product/${product.event_id}`}
+                className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
+              >
+                <img
+                  className="h-96 w-72 object-cover"
+                  src={product.image_url}
+                  alt="product image"
+                />
+              </Link>
+              <h1 className="mt-4 px-4 text-center font-serif text-xl font-semibold text-rose-500">
+                {product.event_name}
+              </h1>
+              <p className="mt-1 px-4 text-center text-gray-600">
+                {product.direction}
+              </p>
+            </div>
+            {/* /Page1 */}
+            {/* Page2 */}
+            <div className="absolute left-0 -bottom-96 flex h-full w-full flex-col justify-center transition-all duration-300 ease-in-out group-hover:bottom-0">
+              <h1 className="mb-2 px-8 text-center font-serif text-xl font-semibold text-rose-500">
+                {product.product_name}
+              </h1>
+              <p className="px-8 text-center">{product.direction}</p>
+
+              <Link class="absolute bottom-0 right-0 flex h-12 w-12 items-center justify-center bg-[#FE7A00] text-white transition-all hover:w-16" onClick={handleModalOpen} >
+             
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2"
+                  />
+                </svg>
+              
+              </Link>
+            </div>
+            {/* /Page2 */}
+          </div>
 
           // <div
           //   key={id}
@@ -166,14 +185,14 @@ const ExploreEvent = () => {
           //     >
           //         <svg class="w-10 h-10" xmlns="http://www.w3.org/2000/svg"
           //          width="24"
-          //           height="24" 
-          //          viewBox="0 0 24 24" 
-          //          stroke-width="2" 
+          //           height="24"
+          //          viewBox="0 0 24 24"
+          //          stroke-width="2"
           //          stroke="currentColor"
-          //           fill="none" 
+          //           fill="none"
           //           stroke-linecap="round"
-          //            stroke-linejoin="round"> 
-                    
+          //            stroke-linejoin="round">
+
           //             <path d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2" /></svg>
           //       {/* Add to cart */}
           //     </button>
@@ -218,6 +237,7 @@ const ExploreEvent = () => {
           </button>
         </div>
       </div>
+      <Quantity isOpen={isRequestModalOpen} onclose={handleModalClose} />
     </div>
   );
 };

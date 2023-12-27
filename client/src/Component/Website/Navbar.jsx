@@ -3,12 +3,15 @@ import logo from "./image/logoaii.png";
 import { Link, useLocation } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { useAuth } from "../../AuthContext";
+
 function Navbar() {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const [user, setUser] = useState(false);
   const [cookie, setCookie, removeCookie] = useCookies(["token"], {
     token: null,
   });
+  
+  
   const { isAuthenticated, register, isLoggedIn, logout, login } = useAuth();
   console.log(useCookies(["token"]));
   useEffect(() => {

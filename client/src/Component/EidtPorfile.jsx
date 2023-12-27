@@ -125,13 +125,15 @@ const EidtPorfile = ({ isOpen, onclose, eventId }) => {
   const [user, setUser] = useState({
     // ... other properties
   });
+  console.log(id,"wsdasdasdasd");
+  
   const [dataLoaded, setDataLoaded] = useState(false);
     useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`http://localhost:3001/event/event?id=${eventId}`);
         setUser(response.data);
-        
+        console.log(eventId,"mmmmmmmmmmmmmmmmmmmmmm");
         setDataLoaded(true);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -170,7 +172,7 @@ const EidtPorfile = ({ isOpen, onclose, eventId }) => {
           `http://localhost:3001/event/update?id=${eventId}`,
           formData,
         );
-
+console.log(eventId,"kkkkkkkkkk");
         console.log(response.data);
 
         Swal.fire({

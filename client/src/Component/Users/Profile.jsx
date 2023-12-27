@@ -52,7 +52,7 @@ function Profile() {
     removeCookie("token");
   };
   return (
-    <div className="sticky">
+    <div className="sticky ">
       {/* ml-[-100%] */}
       <div className=" md:hidden relative ">
       <button
@@ -116,18 +116,18 @@ function Profile() {
 
       </div>
       <div
-        className={`z-1 top-0 sticky pb-3 px-6 w-full md:translate-x-0 flex flex-col justify-between h-screen border-r bg-[#c65f20] transition-transform duration-300 lg:ml-0 ${
-          !isSideOpen ? "-translate-x-full" : "translate-x-0"
+        className={`z-4 top-0 sticky pb-3 px-6 lg:w-full md:w-full md:translate-x-0 lg:flex md:flex flex-col justify-between h-screen border-r bg-[#c65f20] transition-transform duration-300 lg:ml-0 ${
+          !isSideOpen ? "-translate-x-full sm:w-0 w-0 sm:hidden hidden" : "translate-x-0 "
         }`}
       >
-        <div>
+        <div className="">
           <div className="mt-8 text-center">
             <img
-              src={user.user_image}
+              src={user.user_image} 
               alt=""
               className="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28"
             />
-            <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">
+            <h5 className="hidden mt-4 text-xl font-semibold text-white lg:block">
               <span>{user.first_name} </span>
               {user.last_name}
             </h5>
@@ -182,7 +182,7 @@ function Profile() {
                   />
                 </svg>
                 <Link to="orderEvent">
-                  <button className="group-hover:text-orange-300">Event</button>
+                  <button className=" text-white group-hover:text-orange-300">Event</button>
                 </Link>
               </a>
             </li>
@@ -209,7 +209,7 @@ function Profile() {
                   />
                 </svg>
                 <Link to="orderTicket">
-                  <button className="group-hover:text-orange-300">
+                  <button className=" text-white group-hover:text-orange-300">
                     Ticket
                   </button>
                 </Link>
@@ -219,7 +219,7 @@ function Profile() {
         </div>
 
         <div className="px-6 -mx-6 pt-4 flex justify-between items-center border-t">
-          <button className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
+          <button className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group ">
             <Link to="/login">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -237,7 +237,7 @@ function Profile() {
               </svg>
             </Link>
             <Link to="/">
-              <button className="group-hover:text-[#FE7A00]" onClick={logout}>
+              <button className=" text-white group-hover:text-[#FE7A00]" onClick={logout}>
                 Logout
               </button>
             </Link>

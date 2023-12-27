@@ -26,48 +26,45 @@ import Payment from "./pages/Payment";
 import EidtPorfile from "./Component/EidtPorfile";
 import { AuthProvider } from "./AuthContext";
 
-
 function App() {
   return (
     <div className="App">
       <AuthProvider>
-      <Router>
-        <Nav />
-        <div className="h-full">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="about" element={<About />} />
-            {/* <Route path="profile" element={<Profile />} /> */}
-            <Route path="contact" element={<ContactUs />} />
-            <Route path="login" element={<Log />} />
-            <Route path="signup" element={<SignUp />} />
-            <Route path="create event" element={<Events />} />
-            <Route path="payment/:id/:event" element={<Payment />} />
-            <Route path="category/:category" element={<CategoryContent />} />
-            <Route path="blog/:id" element={<FlipCard />} />
-            <Route path="/ticket/:id" element={<Ticket />} />
-            <Route path="*" element={<NotFound />} />
-            <Route path="card" element={<Card />} />
-            {/* <Route path="profileprivate" element={<ProfilePrivate />} />
+        <Router>
+          <Nav />
+          <div className="h-full">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="about" element={<About />} />
+              {/* <Route path="profile" element={<Profile />} /> */}
+              <Route path="contact" element={<ContactUs />} />
+              <Route path="login" element={<Log />} />
+              <Route path="signup" element={<SignUp />} />
+              <Route path="create event" element={<Events />} />
+              <Route path="payment/:id/:event" element={<Payment />} />
+              <Route path="category/:category" element={<CategoryContent />} />
+              <Route path="blog/:id" element={<FlipCard />} />
+              <Route path="/ticket/:id" element={<Ticket />} />
+              <Route path="*" element={<NotFound />} />
+              <Route path="card" element={<Card />} />
+              {/* <Route path="profileprivate" element={<ProfilePrivate />} />
             <Route path="orderticket" element={<OrderTicket />} />
             <Route path="orderevent" element={<OrderEvent />} /> */}
-            <Route path="eidtPorfile" element={<EidtPorfile />} />
-            
-            <Route path="profile" element={<DashProfile />}>
-            
-              <Route path="orderTicket" />
-              <Route path="orderEvent" />
-              <Route path="profilePrivate" />
-              <Route index />
-            </Route>
+              <Route path="eidtPorfile" element={<EidtPorfile />} />
 
-            {/* < Route path="discripiton" element={< Discripiton/>} /> */}
-            {/* <Route path="quantity" element={<Quantity />} /> */}
-          </Routes>
-          
-        </div>
-        <Foot />
-      </Router>
+              <Route path="profile" element={<DashProfile />}>
+                <Route path="orderTicket" />
+                <Route path="orderEvent" />
+                <Route path="profilePrivate" />
+                <Route index />
+              </Route>
+
+              {/* < Route path="discripiton" element={< Discripiton/>} /> */}
+              {/* <Route path="quantity" element={<Quantity />} /> */}
+            </Routes>
+          </div>
+          <Foot />
+        </Router>
       </AuthProvider>
     </div>
   );

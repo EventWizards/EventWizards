@@ -106,8 +106,9 @@ class EventController {
     
     const image_id = null 
      const image_url =req.body.imageUrls
-      console.log(image_url);
+      
     const event_Id =req.query.id;
+    console.log(event_Id,"sssssssssssssssssssss");
 
     try {
       const updatedEvent = await EventModel.updateEvent(event_Id,event_name, speaker, location, date, tickets, price,location_url,image_url,image_id,direction,user_id);

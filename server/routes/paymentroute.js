@@ -9,6 +9,7 @@ const cors = require('cors');
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 router.get('/payments', paymentController.getAllPayments);
 router.get('/payments/:id', paymentController.getPaymentById);
+router.get('/paymentsSamary/:event_id', paymentController.payment_samary);
 router.get('/tikite',auth.authorize([1,2]) ,paymentController.gettikiet);
 router.get('/tikitebyid',auth.authorize([1,2]) ,paymentController.gettikiet);
 router.post('/addpay',auth.authorize([2,1]) ,paymentController.createPayment);

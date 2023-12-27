@@ -65,8 +65,8 @@ console.log("sdasdas",response.data);
   };
 
   return (
-    <div>
-      <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+    <div className=" sm:rounded-lg">
+      <div class=" overflow-x-auto rounded-lg border border-gray-200 shadow-md m-5 rtl:text-right text-gray-500 dark:text-gray-400">
         
         <table class="relative w-full border-collapse bg-white text-left text-sm text-gray-500">
           <thead class="bg-gray-50">
@@ -92,6 +92,12 @@ console.log("sdasdas",response.data);
               </th>
               <th scope="col" class="px-6 py-4 font-medium text-gray-900">
               Action
+              </th>
+              <th scope="col" class="px-6 py-4 font-medium text-gray-900">
+             Details
+              </th>
+              <th scope="col" class="px-6 py-4 font-medium text-gray-900">
+              Payment
               </th>
             
             </tr>

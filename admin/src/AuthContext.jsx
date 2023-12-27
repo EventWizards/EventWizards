@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = (token) => {
     setAuthToken(token);
-    Cookies.set("token", token)
+    Cookies.set("admintoken", token)
     setUserRole(1)
     // window.location.href = "/";
   };
@@ -31,8 +31,8 @@ console.log("asdasdasdasd",userRole);
   const logout = () => {
     setAuthToken(null);
     console.log(authToken);
-    Cookies.remove("token");
-    Cookies.remove("role");
+    Cookies.remove("admintoken");
+    Cookies.remove("rule");
     sessionStorage.removeItem("role");
     window.location.href = "/";
     };

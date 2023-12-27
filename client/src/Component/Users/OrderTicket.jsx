@@ -24,8 +24,8 @@ function OrderTicket() {
   }, []);
   return (
     
-    <div className="relative flex flex-col mt-5 mx-auto mb-5">
-    <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+    <div className="relative flex flex-col mt-5 mx-auto mb-5 overflow-x-auto sm:rounded-lg ">
+    <div class=" rounded-lg border border-gray-200 shadow-md m-5 rtl:text-right text-gray-500 dark:text-gray-400">
       <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
         <thead class="bg-gray-50">
           
@@ -138,7 +138,7 @@ function OrderTicket() {
 
                        <td class="flex px-6 py-2 items-center justify-center"><span className="text-sm  text-light-inverse text-md/normal ">
                        <button className="  relative  text-secondary-dark bg-light-dark hover:text-primary flex items-center h-[25px] w-[25px] text-base font-medium leading-normal text-center align-middle cursor-pointer rounded-2xl transition-colors duration-200 ease-in-out shadow-none border-0 justify-center">
-                         <span className="flex items-center justify-center p-0 m-0 leading-none shrink-0 text-orange-400">
+                         <span className="flex items-center justify-center p-0 m-0 leading-none mt-10 shrink-0 text-orange-400 ">
                           <Link to={`/ticket/${product.id}`}>
                              <svg
                               xmlns="http://www.w3.org/2000/svg"

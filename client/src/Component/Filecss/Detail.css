@@ -23,7 +23,7 @@
   
     position: relative;
     transform-style: preserve-3d;
-    transition: .6s .1s;
+    transition: .3s .1s;
     
     /* transition: transform 0.5s ease; */
   }

@@ -12,7 +12,7 @@ import { Link, Navigate } from "react-router-dom";
 import Cookies from "js-cookie";
 function HomeDash() {
   const {isUserRole} = useAuth()
-  const role = isUserRole() || Cookies.get('role')
+  const rule = isUserRole() || Cookies.get('rule')
   return (
     <>
       <div className="flex flex-row gap-4 ">
@@ -64,7 +64,7 @@ function HomeDash() {
         <Route path="profilePrivate" element={<ProfilePrivate />} /> */}
         </Routes>
       </div>
-      {role != 1 &&
+      {rule != 1 &&
    (<Navigate to="/login" replace/>)
   }
     </>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import '../Filecss/Distinationtop.css'
+import { Link } from "react-router-dom";
 // Card component
 
 
@@ -48,7 +49,9 @@ console.log(products);
         <h2 className="mb-4 text-center pt-12 left-1/2 font-serif text-3xl font-bold text-[#FE7A00] md:mb-6 md:text-4xl">Top Destination</h2>
     <main className="page-content">
       {products.map((card, index) => (
+        <Link to={`category/${card.id}`} key={card.id}>
         <Card key={card.id} title={card.name}  image={card.image} />
+        </Link>
       ))}
     </main>
     </div>

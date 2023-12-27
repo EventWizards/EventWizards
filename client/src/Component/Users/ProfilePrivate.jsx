@@ -500,6 +500,7 @@ function ProfilePrivate() {
 
       setUser(response.data);
       console.log(response.data, "Updated user information");
+      window.location.href = "/profile";
     } catch (error) {
       console.error("Error updating information:", error);
     }
@@ -510,7 +511,7 @@ function ProfilePrivate() {
   }, [user]);
 
   return (
-    <div className="flex items-center justify-center mx-auto mt-5">
+    <div className="flex items-center  mx-auto mt-5">
       <div className="bg-white mx-auto text-start shadow-md shadow-orange-500 rounded px-8 pt-6 pb-8 mb-4 flex justify-center flex-col my-2">
         {/* ... your other JSX code ... */}
         <div className="text-center">

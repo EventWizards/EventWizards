@@ -58,7 +58,7 @@ function Log() {
 
       // Set the token in a cookie
       // setCookie('token', token, { path: '/' });
-      Cookies.set("role",1)
+      Cookies.set("rule",1)
       login(token)
               navigate("/");
             }

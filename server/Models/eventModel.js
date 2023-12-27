@@ -38,10 +38,10 @@ class EventModel {
   }
   
 
-  async updateEvent(event_id, event_name, speaker, location, date, tickets, price, location_url, image_url, image_id, direction, user_id) {
+  async updateEvent(event_Id, event_name, speaker, location, date, tickets, price, location_url, image_url, image_id, direction, user_id) {
     const result = await pool.query(
       'UPDATE public."Events" SET event_name = COALESCE($2, event_name), speaker = COALESCE($3, speaker), location = COALESCE($4, location), date = COALESCE($5, date), tickets = COALESCE($6, tickets), price = COALESCE($7, price), location_url = COALESCE($8, location_url), image_url = COALESCE($9, image_url), image_id = COALESCE($10, image_id), direction = COALESCE($11, direction), user_id = COALESCE($12, user_id) WHERE event_id = $1 ;',
-      [event_id, event_name, speaker, location, date, tickets, price, location_url, image_url, image_id, direction, user_id]
+      [event_Id, event_name, speaker, location, date, tickets, price, location_url, image_url, image_id, direction, user_id]
     );
     return result.rows[0];
   }

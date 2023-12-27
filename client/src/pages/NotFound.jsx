@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 function NotFound() {
   return (
     <>
-      <div className="flex flex-col gap-8 justify-center items-center bg-[#FEFAF1]">
+      <div className="flex flex-col gap-8 justify-center items-center  py-20">
         <div className="w-80">
           {/* <img src={notFound} /> */}
         </div>

@@ -8,7 +8,7 @@ import { Route, Router, Routes } from "react-router-dom";
 function DashProfile() {
   return (
     <>
-      <div className="flex flex-row gap-4 ">
+      <div className="flex flex-row gap-4 bg-[#FEFAF1] min:h-screen calc(100vh-64px)">
         <Profile />
         <Routes>
           <Route path="orderTicket" element={<OrderTicket />} />

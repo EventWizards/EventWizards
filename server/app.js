@@ -22,7 +22,7 @@ app.use(passport.session());
 
 
 
-app.use('/g',google_router);
+app.use(google_router);
 
 
 

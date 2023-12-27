@@ -103,14 +103,14 @@ function SignUp() {
             <div className="flex items-center">
               <img
                 className="h-10 w-10 rounded-full object-cover"
-                src="Simon Lewis"
+                src="https://media.istockphoto.com/id/858867552/vector/ticket-set-on-white-background.jpg?s=612x612&w=0&k=20&c=sq02MJHEzZJdYQbAjkr1DQ_-AYKiUlHeNDHvNaBTqh8="
                 alt="Simon Lewis"
               />
               <p className="ml-4 w-56">
                 <strong className="block font-medium"> EventWizards</strong>
                 <span className="text-xs text-gray-200">
                   {" "}
-                  Published 12 Bestsellers{" "}
+                  Enjoy with us the best events{" "}
                 </span>
               </p>
             </div>
@@ -173,7 +173,7 @@ function SignUp() {
         </div>
         <p className="mb-1 font-medium text-gray-500">Email</p>
         <div className="mb-4 flex flex-col">
-          <div className="focus-within:border-blue-600 relativeflex overflow-hidden rounded-md border-2 transition sm:w-80 lg:w-full">
+          <div className="focus-within:border-blue-600 relative flex flex-col overflow-hidden rounded-md border-2 transition sm:w-80 lg:w-full">
             <input
               type="email"
               id="signup-email"

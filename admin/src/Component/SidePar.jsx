@@ -10,8 +10,10 @@ function SidePar() {
     // ... other properties
   });
   const [cookies] = useCookies(['token']);
-  const token = cookies.token;
+  const token = cookies.admintoken;
   const {logout} = useAuth()
+  const [isSideOpen, setIsSideOpen] = useState(false);
+
   useEffect(() => {
     // console.log("Fetching data...");
     // console.log("Headers:", headers);
@@ -33,9 +35,74 @@ function SidePar() {
     fetchData();
   }, []);
   return (
-    <div className=" bg-gray-50   ">
+    <div className="bg-gray-50 " >
+            <div className=" md:hidden relative ">
+      <button
+            aria-label="Close sidebar"
+            id="closeSideBar"
+            className={`${
+              isSideOpen ? "block" : "hidden"
+            } lg:hidden h-10 w-10 bg-[#FE7A00] absolute left-80 mt-16  flex items-center shadow rounded-tr rounded-br justify-center cursor-pointer text-white`}
+            onClick={()=>setIsSideOpen(!isSideOpen)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="icon icon-tabler icon-tabler-x"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="#fff"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z"></path>
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+      <button
+            aria-label="toggle sidebar"
+            id="openSideBar"
+            className={`${
+              isSideOpen ? "hidden" : "flex"
+            } lg:hidden h-10 w-10 bg-gray-600 absolute  mt-16 mr-1 items-center shadow rounded-tr rounded-br justify-center cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 rounded focus:ring-gray-800`}
+            onClick={()=>setIsSideOpen(!isSideOpen)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="icon icon-tabler icon-tabler-adjustments "
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="#FFFFFF"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z"></path>
+              <circle cx="6" cy="10" r="2"></circle>
+              <line x1="6" y1="4" x2="6" y2="8"></line>
+              <line x1="6" y1="12" x2="6" y2="20"></line>
+              <circle cx="12" cy="16" r="2"></circle>
+              <line x1="12" y1="4" x2="12" y2="14"></line>
+              <line x1="12" y1="18" x2="12" y2="20"></line>
+              <circle cx="18" cy="7" r="2"></circle>
+              <line x1="18" y1="4" x2="18" y2="5"></line>
+              <line x1="18" y1="9" x2="18" y2="20"></line>
+            </svg>
+          </button>
+        
+
+      </div>
       {/* Sidebar */}
-      <div className="  left-0 flex h-full w-72 flex-col overflow-hidden rounded-r-2xl bg-[#c65f20] text-white">
+      <div className={`z-4 top-0 sticky pb-3 px-6 lg:w-full md:w-full md:translate-x-0 lg:flex md:flex flex-col justify-between h-screen border-r bg-[#c65f20] transition-transform duration-300 lg:ml-0 ${
+          !isSideOpen ? "-translate-x-full sm:w-0 w-0 sm:hidden hidden" : "translate-x-0 "
+        }`}
+      >
+      <div className="lg:w-full md:w-full md:translate-x-0 lg:flex md:flex  left-0 flex  calc(100vh-64px) w-72 flex-col overflow-hidden rounded-r-2xl bg-[#c65f20] text-white ">
         <h1 className="mt-10  text-center text-3xl font-bold"> EventWizards</h1>
         <ul className="mt-20 space-y-3">
           <li className="relative flex cursor-pointer  space-x-2 rounded-md py-4 px-10 text-gray-300 hover:bg-slate-600">
@@ -232,6 +299,7 @@ function SidePar() {
             <p className="text-sm text-gray-300">Admin</p>
           </div>
         </div>
+      </div>
       </div>
       {/* /Sidebar */}
     </div>

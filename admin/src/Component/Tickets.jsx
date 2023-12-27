@@ -35,7 +35,7 @@ function Tickets() {
   };
   return (
     <div>
-      <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+      <div class="overflow-x-auto rounded-lg border border-gray-200 shadow-md m-5 rtl:text-right text-gray-500 dark:text-gray-400">
         <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
           <thead class="bg-gray-50">
             <tr>

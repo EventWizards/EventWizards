@@ -26,6 +26,21 @@ async function getPaymentById(req, res) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 }
+async function payment_samary(req, res) {
+  const  event_id  = req.params.event_id;
+  console.log(event_id);
+  try {
+    const payment = await paymentModel.paymentSamary(event_id);
+    if (payment) {
+      res.json(payment);
+    } else {
+      res.status(404).json({ error: 'Payment not found' });
+    }
+  } catch (error) {
+    console.error('Error fetching payment by ID:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+}
 async function gettikiet(req, res) {
   const  user_id  = req.user.user_Id;
   console.log(req.user.user_Id);
@@ -96,4 +111,5 @@ module.exports = {
   updatePaymentStatus,
   getemail,
   gettikiet,
+  payment_samary
 };

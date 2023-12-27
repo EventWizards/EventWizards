@@ -57,8 +57,8 @@ class User {
       if (result2.length === 0) {
         return null;
       }
-      console.log(result[0]);
-      return result[0];
+      
+      return result2[0];
       }
       else{
         const result2 = await knex('Users')
@@ -69,7 +69,7 @@ class User {
       if (result2.length === 0) {
         return null;
       }
-      return result[0];
+      return result2[0];
       }
       
 

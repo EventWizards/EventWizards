@@ -46,8 +46,8 @@ function Log() {
         if (response.status === 200) {
           Swal.fire({
             icon: "success",
-            title: "Event Created Successfully!",
-            text: "Your event has been created successfully.",
+            title: "Login Successful!",
+            text: "You have successfully logged in.",
             timer: 3000,
             iconColor: "#FE7A00",
             confirmButtonColor:"#FE7A00"
@@ -73,37 +73,7 @@ function Log() {
   };
 
   const handlegoogle = async () => {
-   redirect='http://localhost:3001/g/auth/google'
-    axios
-      .get("http://localhost:3001/g/auth/google", formData)
-      .then((response) => {
-        if (response.status === 200) {
-          Swal.fire({
-            icon: "success",
-            title: "Event Created Successfully!",
-            text: "Your event has been created successfully.",
-            timer: 3000,
-            iconColor: "#FE7A00",
-            confirmButtonColor:"#FE7A00"
-          });
-          const { token, redirectUrl } = response.data;
-
-          setRedirectUrl(redirectUrl);
-      // setCookie('token', token, { path: '/' })
-      Cookies.set("role",2)
-      login(token)
-            navigate(redirectUrl);
-        
-        }
-      })
-      .catch((error) => {
-        console.error("An error occurred while sending the message:", error);
-        Swal.fire({
-          icon: "error",
-          title: "Error!",
-          text: "An error occurred while creating the event.",
-        });
-      });
+    window.location.href = "http://localhost:3001/auth/google";
   };
   return (
     <div className="mx-auto items-center justify-center flex min-screen max-w-lg flex-col md:max-w-none md:flex-row md:pr-10 ">
@@ -119,14 +89,14 @@ function Log() {
             <div className="flex items-center">
               <img
                 className="h-10 w-10 rounded-full object-cover"
-                src={logo} 
+                src="https://media.istockphoto.com/id/858867552/vector/ticket-set-on-white-background.jpg?s=612x612&w=0&k=20&c=sq02MJHEzZJdYQbAjkr1DQ_-AYKiUlHeNDHvNaBTqh8=" 
                 alt="Simon Lewis"
               />
               <p className="ml-4 w-56">
                 <strong className="block font-medium"> EventWizards</strong>
                 <span className="text-xs text-gray-200">
                   {" "}
-                  Published 12 Bestsellers{" "}
+                  Enjoy with us the best events{" "}
                 </span>
               </p>
             </div>
@@ -191,6 +161,7 @@ function Log() {
             <p className="text-red-500 text-xs italic">{passwordError}</p>
           )}
         </div>
+        <div className="flex flex-row gap-3">
         <div className="pt-4 text-center ">
         <button
           className="hover:shadow-blue-600/40 rounded-xl bg-gradient-to-r bg-[#FE7A00] hover:bg-orange-700 px-8 py-3 font-bold text-white transition-all hover:opacity-90 hover:shadow-lg"
@@ -203,8 +174,8 @@ function Log() {
           className="hover:shadow-blue-600/40 rounded-xl bg-gradient-to-r bg-[#FE7A00] hover:bg-orange-700 px-8 py-3 font-bold text-white transition-all hover:opacity-90 hover:shadow-lg"
           onClick={handlegoogle}
         >
-          Logingoogle
-        </button></div>
+          Google
+        </button></div></div>
         <p className="text-center text-gray-600 pt-5">
         Don't have an account?
           <Link

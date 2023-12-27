@@ -124,7 +124,7 @@ class UserController {
       const user_id = req.query.id;
 
       const user = await User.activeUser(user_id);
-
+console.log(user,"sssssssssssssssssssss");
       res.json(user);
     } catch (error) {
       console.error('Error  user:', error);
@@ -214,6 +214,7 @@ class UserController {
       const user_id=req.user.user_Id
       console.log(user_id);
       const users = await User.getUsersbyid(user_id);
+      
       res.json(users);
     } catch (error) {
       console.error('Error getting all users:', error);

@@ -5,6 +5,7 @@ function authorize(allowedRoles) {
   return (req, res, next) => {
     const au = req.rawHeaders.indexOf("Authorization");
     const token = req.rawHeaders[au+1];
+    console.log(req.rawHeaders);
     console.log(token);
    
     if (!token) {
@@ -21,6 +22,7 @@ function authorize(allowedRoles) {
 
       if (allowedRoles.includes(rule_id)) {
         req.user=decodedToken
+        
         next();
       } else {
         res.status(403).json({

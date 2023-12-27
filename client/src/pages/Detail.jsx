@@ -241,7 +241,7 @@ const FlipCard = () => {
 
               <div>
               <button
-                className="buttonticket2 mt-4"
+                className="rounded-xl bg-gradient-to-r bg-[#FE7A00] hover:bg-orange-700 px-8 py-3 font-bold text-white transition-all hover:opacity-90 hover:shadow-lg mt-4"
                 onClick={handleModalOpen}
               >
                 Buy Ticket

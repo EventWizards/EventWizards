@@ -115,19 +115,21 @@ exports.logout = (req, res) => {
           }
     
           try {
-            const { displayName, emails, id } = req.user;
-            const user_name = displayName;
+            const { family_name,given_name ,emails, id } = req.user;
+            const first_name = given_name;
+            const last_name = family_name;
             const email = emails[0].value;
             
     
             const emailCheck = await knex('Users').select('*').where({ email });
-    console.log(emailCheck);
+    
             if (emailCheck.length > 0) {
               const payload = {
-                user_name: user_name,
+                first_name: first_name,
+                last_name:last_name,
                 email: email,
                 rule_id: emailCheck[0].rule_id, 
-                user_id: emailCheck[0].user_id, 
+                user_Id: emailCheck[0].user_id, 
               };
     
               const secretKey = process.env.secretKey;
@@ -137,17 +139,18 @@ exports.logout = (req, res) => {
               res.redirect(redirectUrl);
             } else {
               const password = "No Access";
-              const first_name=user_name
+              
 
-              const result = await knex('Users').insert({ first_name, email, password }).returning('*');
+              const result = await knex('Users').insert({ first_name, last_name,email, password }).returning('*');
               
               
               
               console.log(result);
               const payload = {
-                user_name: user_name,
+                first_name: first_name,
+                last_name:last_name,
                 email: email,
-                user_id: result[0].user_id,
+                user_Id: result[0].user_id,
                 rule_id : result[0].rule_id
               };
     
