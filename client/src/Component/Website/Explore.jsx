@@ -11,15 +11,9 @@ const ExploreEvent = () => {
 
   // const [quantity, setQuantity] = useState(2);
   const [products, setProducts] = useState([]);
-  const [isRequestModalOpen, setRequestModalOpen] = useState(false);
+  
 
-  const handleModalOpen = () => {
-    setRequestModalOpen(true);
-  };
-
-  const handleModalClose = () => {
-    setRequestModalOpen(false);
-  };
+  
 
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
@@ -119,7 +113,7 @@ const ExploreEvent = () => {
               </h1>
               <p className="px-8 text-center">{product.direction}</p>
 
-              <Link class="absolute bottom-0 right-0 flex h-12 w-12 items-center justify-center bg-[#FE7A00] text-white transition-all hover:w-16" onClick={handleModalOpen} >
+              <Link class="absolute bottom-0 right-0 flex h-12 w-12 items-center justify-center bg-[#FE7A00] text-white transition-all hover:w-16"  to={`/blog/${product.event_id}`}> 
              
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -237,7 +231,7 @@ const ExploreEvent = () => {
           </button>
         </div>
       </div>
-      <Quantity isOpen={isRequestModalOpen} onclose={handleModalClose} />
+     
     </div>
   );
 };

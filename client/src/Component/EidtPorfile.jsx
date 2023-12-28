@@ -289,13 +289,13 @@ console.log(eventId,"kkkkkkkkkk");
                 </div>
               </div> */}
 
-              <div className="mb-4 md:flex md:justify-between">
+<div className=" flex flex-row text-start gab-3 mb-4 md:flex md:justify-between " >
                 <div className="mb-4 md:mr-2 md:mb-0">
                   <label
-                    className="block mb-2 text-sm font-bold text-gray-700 dark:text-black "
+                    className="block mb-2 text-sm font-bold text-gray-700 dark:text-black  text-start "
                     htmlFor="Presenter "
                   >
-                    speaker *
+                    Speaker 
                   </label>
                   <input
                     className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-black  border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
@@ -326,15 +326,15 @@ console.log(eventId,"kkkkkkkkkk");
                     placeholder={user.event_location}
                   />
                 </div> */}
-              </div>
+             
 
-              <div className="mb-4 md:flex md:justify-between">
+              <div className="mb-4 md:flex md:justify-between text-start">
                 <div className="mb-4 md:mr-2 md:mb-0">
                   <label
                     className="block mb-2 text-sm font-bold text-gray-700 dark:text-black "
                     htmlFor="Number "
                   >
-                    Number of seats *
+                    Available seats 
                   </label>
                   <input
                     className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-black  border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
@@ -392,7 +392,7 @@ console.log(eventId,"kkkkkkkkkk");
                     className="block mb-2 text-sm font-bold text-gray-700 dark:text-black "
                     htmlFor="Photo"
                   >
-                    Photo of the event
+                    Photo 
                   </label>
                   <input
   className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-black border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
@@ -402,13 +402,13 @@ console.log(eventId,"kkkkkkkkkk");
 />
 
                 </div>
-              </div>
+              </div> </div>
               <div className="md:ml-2">
                 <label
-                  className="block mb-2 text-sm font-bold text-gray-700 dark:text-black "
+                  className="block mb-2 text-sm font-bold text-gray-700 dark:text-black text-start "
                   htmlFor="Event location "
                 >
-                  Date and Time *
+                  Date and Time 
                 </label>
                 <input
                   className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-black  border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
@@ -422,10 +422,10 @@ console.log(eventId,"kkkkkkkkkk");
 
               <div className="mb-4">
                 <label
-                  className="block mb-2 text-sm font-bold text-gray-700 dark:text-black "
+                  className="block mb-2 text-sm font-bold text-gray-700 dark:text-black text-start "
                   htmlFor="Direction"
                 >
-                  Description *
+                  Description 
                 </label>
                 <input
                   className="w-full h-15 px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-black  border rounded shadow appearance-none focus:outline-none focus:shadow-outline "
@@ -458,10 +458,10 @@ console.log(eventId,"kkkkkkkkkk");
               </div> */}
               <div className="mb-4">
                 <label
-                  className="block mb-2 text-sm font-bold text-gray-700 dark:text-black "
+                  className="block mb-2 text-sm font-bold text-gray-700 dark:text-black text-start"
                   htmlFor="location"
                 >
-                  link location *
+                  link location 
                 </label>
                 <input
                   className="w-full h-15 px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-black  border rounded shadow appearance-none focus:outline-none focus:shadow-outline "
@@ -486,7 +486,7 @@ console.log(eventId,"kkkkkkkkkk");
                   Cancel
                 </button>
                 <button
-                  className="w-auto py-2 px-3 bg-[#FE7A00] text-white rounded-xl mt-2 "
+                  className="w-auto py-2 px-3 bg-[#FE7A00] text-white rounded-xl mt-2 hover:bg-orange-600 hover:text-[#fff]"
                   onClick={handleSaveChanges}
                 >
                   Save Changes

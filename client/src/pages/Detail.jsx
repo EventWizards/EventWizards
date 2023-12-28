@@ -27,7 +27,7 @@ const FlipCard = () => {
   // const handleSubmit = (e) => {
   //   e.preventDefault();
 
-    // Send a POST request with the data to your API endpoint
+  // Send a POST request with the data to your API endpoint
   //   axios.post(" http://localhost:3004/posts", formData).then((response) => {
   //     // Handle the success response here
 
@@ -46,21 +46,14 @@ const FlipCard = () => {
   //   setRequestModalOpen(true);
   // };
 
-
   const handleModalOpen = () => {
     setRequestModalOpen(true);
-    
-   
-    
   };
 
   const handleModalClose = () => {
     setRequestModalOpen(false);
   };
 
- 
-  
-    
   const handleTicketSubmit = (quantity) => {
     // Handle the submission of ticket quantity (e.g., make API call to add to cart)
     console.log(`Adding ${quantity} tickets to cart.`);
@@ -111,154 +104,133 @@ const FlipCard = () => {
   }
 
   return (
-    < >
+    <>
       {/* Flip Card Container 1 */}
-      <div className="md:flex lg:flex-row lg:items-center lg:justify-center justify-center lg:mr-40 md:mr-40 sm:mr-0 mr-0 flex-col place-items-center sm:flex flex sm:flex-col items-center  ">
-      <div className="flip-card-container-custom lg:scale-100 md:scale-90 sm:scale-75 flex flex-row" style={{ "--hue": 40 }}>
-        <div className="flip-card-custom">
-          <div className="card-front-custom  lg:scale-100 md:scale-90 sm:scale-75  ">
-            <figure>
-              <div className="img-bg-custom "></div>
-              <img  src={blogPost.image_url} alt={blogPost.event_name} />
-             <figcaption className=" text-[#FE7A00]">
-             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2" />
-            {blogPost.event_name}
-          </svg>
-              </figcaption>
-            </figure>
-            <ul className="uldetail text-start ">
-              {/* <li className="list">
-                {" "}
-                <label className="text-start text-[#FE7A00]">
-                  Name Event :{" "}
-                </label>
-                {blogPost.name_event}
-              </li>
-              <li className="list">
-                <label className="text-start text-[#FE7A00]">
-                  Presenter :{" "}
-                </label>
-                {blogPost.presenter}
-              </li>
-              <li className="list">
-                <label className="text-start text-[#FE7A00]">
-                  Number_Seats :{" "}
-                </label>
-                {blogPost.number_seats}
-              </li>
-              <li className="list">
-                <label className="text-start text-[#FE7A00]">
-                  Description :{" "}
-                </label>
-                {blogPost.description}
-              </li> */}
-              {/* <li className="list">
-                <label className="text-start text-[#FE7A00]">
-                  Ticket_Price :{" "}
-                </label>
-                {blogPost.ticket_price}
-              </li> */}
-
-             
-
-            </ul>
-            
-          </div>
-          <div className="card-back-custom ">
-            <figure>
-              <div className="img-bg-custom"></div>
-              <img src={blogPost.image_url} alt="Brohm Lake" />
-            </figure>
-            <div>
-              <button
-                className="buttonticket text-[#FE7A00]"
-                onClick={handleModalOpen}
-              >
-                Buy Ticket
-              </button>
-             
+      <div className="flex flex-col justify-center items-center  ">
+        <div className="md:flex lg:flex-row lg:items-center lg:justify-center justify-center  flex-col place-items-center sm:flex flex sm:flex-col items-center  ">
+          <div
+            className="flip-card-container-custom lg:scale-75 md:scale-90 sm:scale-75 flex flex-row"
+            style={{ "--hue": 40 }}
+          >
+            <div className="flip-card-custom">
+              <div className="card-front-custom  lg:scale-100 md:scale-90 sm:scale-75  ">
+                <figure>
+                  <div className="img-bg-custom  w-[50rem]"></div>
+                  <img src={blogPost.image_url} alt={blogPost.event_name} />
+                  <figcaption className=" text-[#FE7A00]">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2"
+                      />
+                      {blogPost.event_name}
+                    </svg>
+                  </figcaption>
+                </figure>
+                {/* <ul className="uldetail text-start "></ul> */}
               </div>
-           
-            <div className="design-container-custom">
-              <span className="design-custom design--1-custom"></span>
-              <span className="design-custom design--2-custom"></span>
-              <span className="design-custom design--3-custom"></span>
-              <span className="design-custom design--4-custom"></span>
-              <span className="design-custom design--5-custom"></span>
-              <span className="design-custom design--6-custom"></span>
-              <span className="design-custom design--7-custom"></span>
-              <span className="design-custom design--8-custom"></span>
+              <div className="card-back-custom ">
+                <figure>
+                  <div className="img-bg-custom"></div>
+                  <img src={blogPost.image_url} alt="Brohm Lake" />
+                </figure>
+                <div>
+                  <button
+                    className="buttonticket text-[#FE7A00] bg-[#fff]"
+                    onClick={handleModalOpen}
+                  >
+                    Buy Ticket
+                  </button>
+                </div>
+
+                <div className="design-container-custom">
+                  <span className="design-custom design--1-custom"></span>
+                  <span className="design-custom design--2-custom"></span>
+                  <span className="design-custom design--3-custom"></span>
+                  <span className="design-custom design--4-custom"></span>
+                  <span className="design-custom design--5-custom"></span>
+                  <span className="design-custom design--6-custom"></span>
+                  <span className="design-custom design--7-custom"></span>
+                  <span className="design-custom design--8-custom"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-between w-fit place-self-center lg:p-12 md:p-8 sm:p-4 p-4 justify-self-center items-center lg:scale-90 md:scale-90 sm:scale-75 scale-75 ">
+            <div className="text-center place-self-center justify-self-center justify-center	">
+              <ul className="uldetail2 text-start  max-w-[400px]">
+                <li className="list place-self-center	 flex ">
+                  {" "}
+                  <div className="">
+                    <label className="text-start text-[#FE7A00] font-bold mr-2 w-fit">
+                      Name Event :{" "}
+                    </label>
+                  </div>
+                  <div className="text-grey-200">{blogPost.event_name}</div>
+                </li>
+                <li className="list flex">
+                  <div className="">
+                    <label className="text-start text-[#FE7A00] font-bold mr-2">
+                      Presenter :{" "}
+                    </label>
+                  </div>
+                  <div className="text-grey-200">{blogPost.speaker}</div>
+                </li>
+                <li className="list flex">
+                  <div>
+                    <label className="text-start text-[#FE7A00] font-bold mr-2">
+                      Available Seats :{" "}
+                    </label>
+                  </div>
+                  <div className="text-grey-200">{blogPost.tickets}</div>
+                </li>
+                {/* <li className="list flex">
+                <div>
+                <label className="text-start text-[#FE7A00] mr-2 w-fit ">
+                  Description :{" "}
+                </label></div>
+                <div className="">
+                {blogPost.direction}</div>
+              </li> */}
+                <li className="list flex">
+                  <div>
+                    <label className="text-start text-[#FE7A00] font-bold mr-2">
+                      Ticket Price :{" "}
+                    </label>
+                  </div>
+                  <div>{blogPost.price}</div>
+                </li>
+
+                <div>
+                  <button
+                    className="rounded-xl bg-gradient-to-r bg-[#FE7A00] hover:bg-orange-700 px-8 py-3 font-bold text-white transition-all hover:opacity-90 hover:shadow-lg mt-4"
+                    onClick={handleModalOpen}
+                  >
+                    Buy Ticket
+                  </button>
+                </div>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
-      <div className="flex justify-between w-fit place-self-center	 justify-self-center items-center lg:scale-100 md:scale-90 sm:scale-75 scale-75 ">
-        <div className="text-center place-self-center justify-self-center justify-center	">
-        <ul className="uldetail2 text-start">
-              <li className="list place-self-center	 flex ">
-                {" "}
-                <div className="">
-                <label className="text-start text-[#FE7A00] mr-2 w-fit">
-                  Name Event :{" "}
-                </label>
-                </div>
-                <div >
-                {blogPost.event_name}</div>
-              </li>
-              <li className="list flex">
-              <div className="">
-                <label className="text-start text-[#FE7A00] mr-2">
-                  Presenter :{" "}
-                </label></div>
-<div>
-                {blogPost.speaker}</div>
-              </li>
-              <li className="list flex">
-                <div>
-                <label className="text-start text-[#FE7A00] mr-2">
-                  Number_Seats :{" "}
-                </label></div>
-                <div>
-                {blogPost.tickets}</div>
-              </li>
-              <li className="list flex">
-                <div>
-                <label className="text-start text-[#FE7A00] mr-2">
-                  Description :{" "}
-                </label></div>
-                <div>
-                {blogPost.direction}</div>
-              </li>
-              <li className="list flex">
-                <div>
-                <label className="text-start text-[#FE7A00] mr-2">
-                  Ticket_Price :{" "}
-                </label></div>
-                <div>
-                {blogPost.price}</div>
-              </li>
 
-              <div>
-              <button
-                className="rounded-xl bg-gradient-to-r bg-[#FE7A00] hover:bg-orange-700 px-8 py-3 font-bold text-white transition-all hover:opacity-90 hover:shadow-lg mt-4"
-                onClick={handleModalOpen}
-              >
-                Buy Ticket
-              </button>
-             
-              </div>
-
-            </ul>
+        <div className="flex flex-col   justify-center items-center lg:mt-16 gap-12">
+          <div className=" text-[#FE7A00] text-3xl font-medium">
+            About this event{" "}
+          </div>
+          <span className="max-w-[50%]">{blogPost.direction}</span>
         </div>
+        <Related />
+        <Quantity isOpen={isRequestModalOpen} onclose={handleModalClose} />
       </div>
-      {/* <div className="flex ">
-            
-            
-          </div> */}
-      </div>
-      <Related />
-      <Quantity isOpen={isRequestModalOpen} onclose={handleModalClose}  />
     </>
   );
 };

@@ -20,6 +20,7 @@ router.get('/getevents', eventController.getAllEventsdb);
 router.get('/getevent', eventController.getAllEvents);
 router.get('/get', eventController.Events);
 router.get('/getEventsbycategory', eventController.getEventsbycategory);
+router.get('/getEventsbycity', eventController.getEventsbycity);
 router.get('/event', eventController.getEventById);
 
 router.post('/add', auth.authorize([1,2]), upload.fields([

@@ -43,6 +43,7 @@ function Log() {
     axios
       .post("http://localhost:3001/users/login", formData)
       .then((response) => {
+        console.log(response.status);
         if (response.status === 200) {
           Swal.fire({
             icon: "success",
@@ -61,14 +62,22 @@ function Log() {
             navigate("/");
         
         }
+        
       })
       .catch((error) => {
+        if (error.response.status === 400) {
+          Swal.fire({
+            icon: "error",
+            title: "Error!",
+            text: "blocked account.",
+          });
+        } else{
         console.error("An error occurred while sending the message:", error);
         Swal.fire({
           icon: "error",
           title: "Error!",
           text: "An error occurred while creating the event.",
-        });
+        });}
       });
   };
 

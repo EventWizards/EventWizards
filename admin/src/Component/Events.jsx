@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import DetailEvent from "./DetailEvent";
+import DetailPayment from "./DetailPayment";
 
 function Events() {
   const [isRequestModalOpen, setRequestModalOpen] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
   const [deletedItems, setDeletedItems] = useState([]);
   const [products, setProducts] = useState([]);
   const [eventId, setEventId] = useState(0);
@@ -62,6 +64,10 @@ console.log("sdasdas",response.data);
   const handleModalDetailOpen = (event_id) => {
     setEventId(event_id);
     setRequestModalOpen(true);
+  };
+  const handleModalpaymentlOpen = (event_id) => {
+    setEventId(event_id);
+    setModalOpen(true);
   };
 
   return (
@@ -275,10 +281,10 @@ console.log("sdasdas",response.data);
                         className="border border-[#FE7A00] rounded-full font-semibold text-[#FE7A00] h-10  my-3 px-4"
                         onClick={() => {
                           console.log(product.event_id);
-                          handleModalDetailOpen(product.event_id);
+                          handleModalpaymentlOpen(product.event_id);
                         }}
                       >
-                        Payment
+                        Profit
                       </button>
                     </td>
                   </tr>
@@ -293,6 +299,11 @@ console.log("sdasdas",response.data);
       <DetailEvent
         isOpen={isRequestModalOpen}
         onclose={() => setRequestModalOpen(false)}
+        eventId={eventId}
+      />
+       <DetailPayment
+        isOpen={isModalOpen}
+        onclose={() => setModalOpen(false)}
         eventId={eventId}
       />
     </div>

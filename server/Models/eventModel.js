@@ -19,11 +19,14 @@ class EventModel {
     const result = await pool.query('SELECT * FROM public."Events" WHERE "isDeleted"=false and event_status=true and user_id=$1;',[user_id]);
     return result.rows;
   }
-  async getEventsbycategory(category_id) {
-    const result = await pool.query('SELECT * FROM public."Events" WHERE "isDeleted"=false And category_id=$1 ;',[category_id]);
+  async getEventsbycategory(category_id,location) {
+    const result = await pool.query('SELECT * FROM public."Events" WHERE "isDeleted"=false And (category_id=$1 or location=$2 );',[category_id,location]);
     return result.rows;
   }
-
+  async getEventsbycity(location) {
+    const result = await pool.query('SELECT * FROM public."Events" WHERE "isDeleted"=false And location=$1 ;',[location]);
+    return result.rows;
+  }
   async getEventById(event_id) {
     const result = await pool.query('SELECT * FROM public."Events" WHERE event_id = $1 and "isDeleted"=false;', [event_id]);
     return result.rows[0];

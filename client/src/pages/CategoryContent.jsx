@@ -30,6 +30,21 @@ const CategoryContent = () => {
         console.error("Error:", error);
       });
   }, []);
+  // useEffect(() => {
+  //   axios
+  //     // .get("https://fakestoreapi.com/products")
+  //     .get(`http://localhost:3001/event/getEventsbycity?id=${category}`)
+  //     .then((response) => {
+  //       setProducts(response.data);
+  //       console.log(response.data);
+  //       // setBlogImages(response.data[0].images);
+  //       // console.log(response.data.images); 
+  //     })
+  //     .catch((error) => {
+  //       // Handle errors here
+  //       console.error("Error:", error);
+  //     });
+  // }, []);
 
   useEffect(() => {
     if (products.length > 0 && category) {
@@ -99,7 +114,7 @@ const CategoryContent = () => {
               </a>
               <div className="mt-2 mb-5 flex items-center justify-between">
                 <p>
-                  <span className="text-lg font-bold text-slate-900">
+                  <span className="text-lg font-bold text-slate-900 line-clamp-1">
                     {event.direction}
                   </span>
                 </p>

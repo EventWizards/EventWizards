@@ -3,19 +3,19 @@ import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-const DetailEvent = ({ isOpen, onclose, eventId }) => {
+const DetailPayment = ({ isOpen, onclose, eventId }) => {
   const id = eventId;
   const [error, setError] = useState("");
   const [user, setUser] = useState({
     // ... other properties
   });
 
-  const [dataLoaded, setDataLoaded] = useState(false);
+  const [dataLoaded, setDataLoaded] = useState(false);  
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/dachbord/event/event?id=${id}`);
+        const response = await axios.get(`http://localhost:3001/pay/paymentsSamary/${id}`);
         setUser(response.data);
         console.log("in axios", response.data);
         setDataLoaded(true);
@@ -32,11 +32,11 @@ const DetailEvent = ({ isOpen, onclose, eventId }) => {
       <Modal
         id="popup-modal"
         tabindex="-1"
-        className="absolute top-[5rem]  left-[6rem]  z-50     max-h-full  w-[60%] h-[90%]  ml-52 mt-16"
+        className="absolute top-[5rem]  left-[6rem]  z-50     max-h-full  w-[60%] h-[80%]  ml-52 mt-16"
         onRequestClose={onclose}
         isOpen={isOpen}
       >
-        <div className="flex  ">
+        <div className="flex ">
           {/* <div className="transform translate-y-100 translate-x-100 w-20 bg-orange-600">
             hi i am bayan alkhader
           </div> */}
@@ -44,13 +44,14 @@ const DetailEvent = ({ isOpen, onclose, eventId }) => {
            
           
             {/* Display fetched data here */}
-          <div className="flex flex-row h-fit">
+          <div className="flex flex-row h-96">
 
         
           
-          <div className="w-28 h-full bg-orange-600 pl-2 " >
-          
+          <div className="text-end w-28 h-full bg-orange-600 pl-2 " >
+        
           </div>
+         
             <div className="w-[100%]  p-5">
             <button
               type="button"
@@ -76,27 +77,26 @@ const DetailEvent = ({ isOpen, onclose, eventId }) => {
               <span class="sr-only">Close modal</span>
             </button>
             <h2 className="text-2xl font-bold mb-6 text-center px-20 pt-2">
-            {user.event_name}
+            Profit Details
             </h2>
-            <div className="pl-2 space-y-3">
-           
+            <div className="pl-2 space-y-2">
+            
               <p>
-                <strong>Category:</strong> {user.category}
+                <strong>Total sold tickets:</strong> {user.pay}
               </p>
               <p>
-                <strong>Presenter:</strong> {user.speaker}
+                <strong>Ticket Price:</strong> {user.price}
               </p>
               <p>
-                <strong>Location:</strong> {user.location}
+                <strong>Total Profit:</strong> {user.total}
               </p>
               <p>
-                <strong>Seats:</strong> {user.tickets}
+                <strong>Our commession:</strong> {user.commation}
               </p>
 
               <p>
-                <strong>Ticket price:</strong> {user.price}
+                <strong>Net Profit:</strong> {user.revenue}
               </p>
-             
               {/* <p>
                 <strong>Date:</strong>  {user.date ? user.date.split("T")[0] : "N/A"}
               </p>
@@ -104,11 +104,7 @@ const DetailEvent = ({ isOpen, onclose, eventId }) => {
                 <strong>Time:</strong>  {user.date ? user.date.split("T")[1] : "N/A"}
               </p> */}
               <p>
-                <strong>Description:</strong> {user.direction}
-              </p>
-              <p className="flex flex-col mb-4">
-                <strong>Ticket price:</strong>
-                <img src={user.image_id} alt="" className="w-24 h-24 p-4" />
+                {/* <strong>Description:</strong> {user.direction} */}
               </p>
               
               </div>
@@ -131,4 +127,4 @@ const DetailEvent = ({ isOpen, onclose, eventId }) => {
   );
 };
 
-export default DetailEvent;
+export default DetailPayment;

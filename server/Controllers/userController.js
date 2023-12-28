@@ -137,7 +137,10 @@ console.log(user,"sssssssssssssssssssss");
       const { email, password } = req.body;
   
       const user = await User.loginUser(email);
- 
+ console.log(user.active);
+ if (user.active==false) {
+  return res.status(400).json({ error: 'Invalid credentials' });
+ }
       if (!user) {
         return res.status(401).json({ error: 'Invalid credentials' });
       }

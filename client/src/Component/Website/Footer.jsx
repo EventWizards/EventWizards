@@ -36,11 +36,11 @@ function Foot() {
               </div>
             </Link>
 
-            <Link to="profile">
+            {/* <Link to="profile">
               <div class="px-5 py-2 text-base leading-6 text-[#fff] hover:text-[#FE7A00] footcolor">
                 Profile
               </div>
-            </Link>
+            </Link> */}
 
             <Link to="about">
               <div class="px-5 py-2 text-base leading-6 text-[#fff] hover:text-[#FE7A00] footcolor">

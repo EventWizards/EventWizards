@@ -47,9 +47,7 @@ function App() {
               <Route path="/ticket/:id" element={<Ticket />} />
               <Route path="*" element={<NotFound />} />
               <Route path="card" element={<Card />} />
-              {/* <Route path="profileprivate" element={<ProfilePrivate />} />
-            <Route path="orderticket" element={<OrderTicket />} />
-            <Route path="orderevent" element={<OrderEvent />} /> */}
+           
               <Route path="eidtPorfile" element={<EidtPorfile />} />
 
               <Route path="profile" element={<DashProfile />}>
@@ -59,8 +57,7 @@ function App() {
                 <Route index />
               </Route>
 
-              {/* < Route path="discripiton" element={< Discripiton/>} /> */}
-              {/* <Route path="quantity" element={<Quantity />} /> */}
+              
             </Routes>
           </div>
           <Foot />

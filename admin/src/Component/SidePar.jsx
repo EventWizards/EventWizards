@@ -104,7 +104,19 @@ function SidePar() {
       >
       <div className="lg:w-full md:w-full md:translate-x-0 lg:flex md:flex  left-0 flex  calc(100vh-64px) w-72 flex-col overflow-hidden rounded-r-2xl bg-[#c65f20] text-white ">
         <h1 className="mt-10  text-center text-3xl font-bold"> EventWizards</h1>
-        <ul className="mt-20 space-y-3">
+        <div className="mt-12 mb-12   flex cursor-pointer">
+          <div>
+            <img
+              className="h-12 w-12 rounded-full"
+              src={user.user_image}
+            />
+          </div>
+          <div className="ml-3">
+            <p className="font-medium">{user.first_name}</p>
+            <p className="text-sm text-gray-300">Admin</p>
+          </div>
+        </div>
+        <ul className="space-y-3">
           <li className="relative flex cursor-pointer  space-x-2 rounded-md py-4 px-10 text-gray-300 hover:bg-slate-600">
             <span>
               <svg
@@ -178,7 +190,7 @@ function SidePar() {
             <Link to="events">
               <span className="">Events</span>
             </Link>
-            <svg
+            {/* <svg
               className="absolute -top-1/2 -right-1 h-32 w-8 text-gray-50"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="399.349 57.696 100.163 402.081"
@@ -189,7 +201,7 @@ function SidePar() {
                 fill="currentColor"
                 d="M 499.289 57.696 C 499.289 171.989 399.349 196.304 399.349 257.333 C 399.349 322.485 499.512 354.485 499.512 458.767 C 499.512 483.155 499.289 57.696 499.289 57.696 Z"
               />
-            </svg>
+            </svg> */}
           </li>
           <li className="relative flex cursor-pointer space-x-2 rounded-md py-4 px-10 text-gray-300 hover:bg-slate-600">
             <span>
@@ -287,18 +299,7 @@ function SidePar() {
             </Link>
           </li>
         </ul>
-        <div className="my-6  ml-10 mt-4 flex cursor-pointer">
-          <div>
-            <img
-              className="h-12 w-12 rounded-full"
-              src={user.user_image}
-            />
-          </div>
-          <div className="ml-3">
-            <p className="font-medium">{user.first_name}</p>
-            <p className="text-sm text-gray-300">Admin</p>
-          </div>
-        </div>
+       
       </div>
       </div>
       {/* /Sidebar */}

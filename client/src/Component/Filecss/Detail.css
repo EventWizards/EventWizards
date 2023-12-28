@@ -23,7 +23,7 @@
   
     position: relative;
     transform-style: preserve-3d;
-    transition: .3s .1s;
+    transition: .2s .1s;
     
     /* transition: transform 0.5s ease; */
   }
@@ -273,11 +273,11 @@
     color: var(--white-4);
   
     letter-spacing: 2px;
-    color:#FE7A00;
+    color:#fff;
     padding: 9px 20px;
-    border: 1px solid var(--grey);
+    border: 1px solid #FE7A00;
     border-radius: 1000px;
-    background: transparent;
+    background-color: #FE7A00;
     transition: .3s;
   
     cursor: pointer;

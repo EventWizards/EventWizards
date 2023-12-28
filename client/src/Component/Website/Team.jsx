@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 const TeamSection = () => {
     const team = [
         {
-            avatar: "https://images.unsplash.com/photo-1579017331263-ef82f0bbc748?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80",
+            avatar: "https://cdn.discordapp.com/attachments/1166333260134096896/1189853799284740226/IMG_0271.jpg?ex=659facb4&is=658d37b4&hm=0e69fa576736aa238220c86af127040df0f394558e8f4e8c156bb304f0846a9e&",
             name: "Mohammed_Younis",
             title: "Front End Dev",
             desc: "Enthusiastic junior frontend developer with a passion for creating interactive and visually appealing web applications",
@@ -17,7 +17,7 @@ const TeamSection = () => {
             github: "javascript:void(0)"
         },
         {
-            avatar: "https://images.unsplash.com/photo-1623605931891-d5b95ee98459?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=640&q=80",
+            avatar: "https://cdn.discordapp.com/attachments/1166333260134096896/1189863289673502800/WhatsApp_Image_2023-12-28_at_12.31.29_PM.jpeg?ex=659fb58a&is=658d408a&hm=c61d3c2a6834a3bcff3bf31e3e09e770e4154159148e7e4d5db50117b380315d&",
             name: "Laith_Alkhriasha",
             title: "Back End Dev",
             desc: "Lorem Ipsum is simply dummy text of the printing and typesettin industry. Lorem Ipsum has been the industry's standard dummy",

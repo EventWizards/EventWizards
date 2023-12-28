@@ -81,7 +81,7 @@ class User {
 
   async loginUser(email) {
     try {
-      const result = await knex('Users').select('*').where({ email,active:true }).first();
+      const result = await knex('Users').select('*').where({ email }).first();
       return result;
     } catch (error) {
       throw error;

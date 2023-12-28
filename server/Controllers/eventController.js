@@ -42,10 +42,24 @@ class EventController {
   }
   async getEventsbycategory(req, res) {
     const category_id = req.query.id;
+    const location = req.query.id;
     console.log(category_id);
     try {
-      const events = await EventModel.getEventsbycategory(category_id);
+      const events = await EventModel.getEventsbycategory(category_id,location);
       res.json(events);
+    } catch (error) {
+      console.error('Error fetching events:', error);
+      res.status(500).send('Internal Server Error');
+    }
+  }
+  async getEventsbycity(req, res) {
+    const location = req.query.id;
+    console.log(location);
+    try {
+      const events = await EventModel.getEventsbycity(location);
+      console.log(events);
+      res.json(events);
+      
     } catch (error) {
       console.error('Error fetching events:', error);
       res.status(500).send('Internal Server Error');
@@ -85,7 +99,7 @@ class EventController {
       console.log(req.body);
       
     const user_id=req.user.user_Id
-    
+    console.log(location);
       const image_url = req.body.imageUrls[1];
       const image_id = req.body.imageUrls[0];
      
